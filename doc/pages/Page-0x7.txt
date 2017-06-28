@@ -1,0 +1,126 @@
+  CELESTIC  R0934-X0001-01    0425
+  Primary enclosure logical identifier (hex): 500e0eca022412ff
+Element Descriptor In diagnostic page:
+  generation code: 0x0
+  element descriptor list (grouped by type):
+    Element type: Array device slot, subenclosure id: 0 [ti=0]
+      Overall descriptor: Array Device Slot
+      Element 0 descriptor: Drive Slot #0_5000CCA05C97E49D
+      Element 1 descriptor: Drive Slot #1_5000CCA05C9856D1
+      Element 2 descriptor: Drive Slot #2_5000CCA05C97E475
+      Element 3 descriptor: Drive Slot #3_0000000000000000
+      Element 4 descriptor: Drive Slot #4_0000000000000000
+      Element 5 descriptor: Drive Slot #5_0000000000000000
+      Element 6 descriptor: Drive Slot #6_5000CCA05C98522D
+      Element 7 descriptor: Drive Slot #7_5000CCA05C9852D1
+      Element 8 descriptor: Drive Slot #8_5000CCA05C80DD99
+      Element 9 descriptor: Drive Slot #9_5000CCA05C985615
+      Element 10 descriptor: Drive Slot #10_5000CCA05C91C62D
+      Element 11 descriptor: Drive Slot #11_5000CCA05C981CE5
+      Element 12 descriptor: Drive Slot #12_5000CCA05C971865
+      Element 13 descriptor: Drive Slot #13_5000CCA05C993A9D
+      Element 14 descriptor: Drive Slot #14_5000CCA05C981E0D
+      Element 15 descriptor: Drive Slot #15_5000CCA05C9852A1
+      Element 16 descriptor: Drive Slot #16_5000CCA05C9812DD
+      Element 17 descriptor: Drive Slot #17_5000CCA05C98CE2D
+      Element 18 descriptor: Drive Slot #18_5000CCA05C989641
+      Element 19 descriptor: Drive Slot #19_5000CCA05C9845A5
+      Element 20 descriptor: Drive Slot #20_5000CCA05C989A29
+      Element 21 descriptor: Drive Slot #21_5000CCA05C971789
+      Element 22 descriptor: Drive Slot #22_5000CCA05C8E7511
+      Element 23 descriptor: Drive Slot #23_5000CCA05C9773C5
+      Element 24 descriptor: Drive Slot #24_5000CCA05C98B225
+      Element 25 descriptor: Drive Slot #25_5000CCA05C98143D
+      Element 26 descriptor: Drive Slot #26_5000CCA05C989645
+      Element 27 descriptor: Drive Slot #27_5000CCA05C982B59
+      Element 28 descriptor: Drive Slot #28_5000CCA05C97ECBD
+      Element 29 descriptor: Drive Slot #29_5000CCA05C983471
+      Element 30 descriptor: Drive Slot #30_5000CCA05C981965
+      Element 31 descriptor: Drive Slot #31_5000CCA05C9664D1
+      Element 32 descriptor: Drive Slot #32_5000CCA05C949135
+      Element 33 descriptor: Drive Slot #33_5000CCA05C97E4CD
+      Element 34 descriptor: Drive Slot #34_5000CCA05C9851ED
+      Element 35 descriptor: Drive Slot #35_5000CCA05C989009
+      Element 36 descriptor: Drive Slot #36_5000C5006BC88A19
+      Element 37 descriptor: Drive Slot #37_5000C50054DA8FCD
+      Element 38 descriptor: Drive Slot #38_5000C5005E6E5611
+      Element 39 descriptor: Drive Slot #39_5000C5005E6C2BFD
+      Element 40 descriptor: Drive Slot #40_50000394A8D0A31E
+      Element 41 descriptor: Drive Slot #41_5000C500541FDAB1
+      Element 42 descriptor: Drive Slot #42_5000C5005E6E5BB5
+      Element 43 descriptor: Drive Slot #43_5000C500006F5449
+      Element 44 descriptor: Drive Slot #44_5000C500580E0881
+      Element 45 descriptor: Drive Slot #45_5000C500582051ED
+      Element 46 descriptor: Drive Slot #46_5000C500006F848D
+      Element 47 descriptor: Drive Slot #47_5000C500418D5025
+      Element 48 descriptor: Drive Slot #48_50000C0F01D287DE
+      Element 49 descriptor: Drive Slot #49_50000394A8D0600A
+      Element 50 descriptor: Drive Slot #50_50000394A8D0A426
+      Element 51 descriptor: Drive Slot #51_5000C50059B4D425
+      Element 52 descriptor: Drive Slot #52_50000394A8D0A246
+      Element 53 descriptor: Drive Slot #53_5000C50041927181
+      Element 54 descriptor: Drive Slot #54_50000394A8D0A32A
+      Element 55 descriptor: Drive Slot #55_5000C50020D4D9FD
+      Element 56 descriptor: Drive Slot #56_5000C50059F8A3F9
+      Element 57 descriptor: Drive Slot #57_5000C50055D11A49
+      Element 58 descriptor: Drive Slot #58_50000394A8D07262
+      Element 59 descriptor: Drive Slot #59_5000C50055BFBD4D
+    Element type: Power supply, subenclosure id: 0 [ti=1]
+      Overall descriptor: Power Supply
+      Element 0 descriptor: PS A_0114
+      Element 1 descriptor: PS B_0114
+    Element type: Cooling, subenclosure id: 0 [ti=2]
+      Overall descriptor: Cooling
+      Element 0 descriptor: Virtual Fan Group #1_PS A
+      Element 1 descriptor: Virtual Fan Group #2_PS B
+      Element 2 descriptor: Fan #1_Virtual Fan Group #1
+      Element 3 descriptor: Fan #2_Virtual Fan Group #1
+      Element 4 descriptor: Fan #1_Virtual Fan Group #2
+      Element 5 descriptor: Fan #2_Virtual Fan Group #2
+    Element type: Temperature sensor, subenclosure id: 0 [ti=3]
+      Overall descriptor: Temperature Sensor
+      Element 0 descriptor: Inlet 1 Temperature_ESM A
+      Element 1 descriptor: Inlet 2 Temperature_ESM A
+      Element 2 descriptor: Outlet Temperature_ESM A
+      Element 3 descriptor: SXP Temperature_ESM A
+      Element 4 descriptor: Inlet 1 Temperature_ESM B
+      Element 5 descriptor: Inlet 2 Temperature_ESM B
+      Element 6 descriptor: Outlet Temperature_ESM B
+      Element 7 descriptor: SXP Temperature_ESM B
+      Element 8 descriptor: Drive Board Temperature 0_Eros Enclosure
+      Element 9 descriptor: Drive Board Temperature 1_Eros Enclosure
+      Element 10 descriptor: Hotspot Temperature_PS A
+      Element 11 descriptor: Ambient Temperature_PS A
+      Element 12 descriptor: Primary Temperature_PS A
+      Element 13 descriptor: Hotspot Temperature_PS B
+      Element 14 descriptor: Ambient Temperature_PS B
+      Element 15 descriptor: Primary Temperature_PS B
+    Element type: Enclosure services controller electronics, subenclosure id: 0 [ti=4]
+      Overall descriptor: ESM
+      Element 0 descriptor: ESM A_500E0ECA02241200
+      Element 1 descriptor: ESM B_0000000000000000
+    Element type: Enclosure, subenclosure id: 0 [ti=5]
+      Overall descriptor: Eros Enclosure
+      Element 0 descriptor: Eros Enclosure
+    Element type: Voltage sensor, subenclosure id: 0 [ti=6]
+      Overall descriptor: Voltage Sensor
+      Element 0 descriptor: 0.9V Voltage_ESM A
+      Element 1 descriptor: 1.0V Voltage_ESM A
+      Element 2 descriptor: 1.8V Voltage_ESM A
+      Element 3 descriptor: 3.3V Voltage_ESM A
+      Element 4 descriptor: 0.9V Voltage_ESM B
+      Element 5 descriptor: 1.0V Voltage_ESM B
+      Element 6 descriptor: 1.8V Voltage_ESM B
+      Element 7 descriptor: 3.3V Voltage_ESM B
+      Element 8 descriptor: 12V Voltage_PS A
+      Element 9 descriptor: 12V Voltage_PS B
+    Element type: SAS expander, subenclosure id: 0 [ti=7]
+      Overall descriptor: SXP Expander
+      Element 0 descriptor: SXP
+      Element 1 descriptor: SXP
+    Element type: SAS connector, subenclosure id: 0 [ti=8]
+      Overall descriptor: SAS Connector
+      Element 0 descriptor: Connector IN_ESM A
+      Element 1 descriptor: Connector OUT_ESM A
+      Element 2 descriptor: Connector IN_ESM B
+      Element 3 descriptor: Connector OUT_ESM B

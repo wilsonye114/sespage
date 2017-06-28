@@ -1,0 +1,183 @@
+  CELESTIC  R0934-X0001-01    0425
+  Primary enclosure logical identifier (hex): 500e0eca022412ff
+Threshold In diagnostic page:
+  INVOP=0
+  generation code: 0x0
+  Threshold status descriptor list
+    Element type: Array device slot, subenclosure id: 0 [ti=0]
+      Overall descriptor:
+      Element 0 descriptor:
+      Element 1 descriptor:
+      Element 2 descriptor:
+      Element 3 descriptor:
+      Element 4 descriptor:
+      Element 5 descriptor:
+      Element 6 descriptor:
+      Element 7 descriptor:
+      Element 8 descriptor:
+      Element 9 descriptor:
+      Element 10 descriptor:
+      Element 11 descriptor:
+      Element 12 descriptor:
+      Element 13 descriptor:
+      Element 14 descriptor:
+      Element 15 descriptor:
+      Element 16 descriptor:
+      Element 17 descriptor:
+      Element 18 descriptor:
+      Element 19 descriptor:
+      Element 20 descriptor:
+      Element 21 descriptor:
+      Element 22 descriptor:
+      Element 23 descriptor:
+      Element 24 descriptor:
+      Element 25 descriptor:
+      Element 26 descriptor:
+      Element 27 descriptor:
+      Element 28 descriptor:
+      Element 29 descriptor:
+      Element 30 descriptor:
+      Element 31 descriptor:
+      Element 32 descriptor:
+      Element 33 descriptor:
+      Element 34 descriptor:
+      Element 35 descriptor:
+      Element 36 descriptor:
+      Element 37 descriptor:
+      Element 38 descriptor:
+      Element 39 descriptor:
+      Element 40 descriptor:
+      Element 41 descriptor:
+      Element 42 descriptor:
+      Element 43 descriptor:
+      Element 44 descriptor:
+      Element 45 descriptor:
+      Element 46 descriptor:
+      Element 47 descriptor:
+      Element 48 descriptor:
+      Element 49 descriptor:
+      Element 50 descriptor:
+      Element 51 descriptor:
+      Element 52 descriptor:
+      Element 53 descriptor:
+      Element 54 descriptor:
+      Element 55 descriptor:
+      Element 56 descriptor:
+      Element 57 descriptor:
+      Element 58 descriptor:
+      Element 59 descriptor:
+    Element type: Power supply, subenclosure id: 0 [ti=1]
+      Overall descriptor:
+      Element 0 descriptor:
+      Element 1 descriptor:
+    Element type: Cooling, subenclosure id: 0 [ti=2]
+      Overall descriptor:
+      Element 0 descriptor:
+      Element 1 descriptor:
+      Element 2 descriptor:
+      Element 3 descriptor:
+      Element 4 descriptor:
+      Element 5 descriptor:
+    Element type: Temperature sensor, subenclosure id: 0 [ti=3]
+      Overall descriptor:
+        high critical=<res>, high warning=<res>
+        low warning=<res>, low critical=<res> (in Celsius)
+      Element 0 descriptor:
+        high critical=70, high warning=60
+        low warning=-19, low critical=-19 (in Celsius)
+      Element 1 descriptor:
+        high critical=70, high warning=60
+        low warning=-19, low critical=-19 (in Celsius)
+      Element 2 descriptor:
+        high critical=80, high warning=70
+        low warning=-19, low critical=-19 (in Celsius)
+      Element 3 descriptor:
+        high critical=125, high warning=108
+        low warning=-19, low critical=-19 (in Celsius)
+      Element 4 descriptor:
+        high critical=70, high warning=60
+        low warning=-19, low critical=-19 (in Celsius)
+      Element 5 descriptor:
+        high critical=70, high warning=60
+        low warning=-19, low critical=-19 (in Celsius)
+      Element 6 descriptor:
+        high critical=80, high warning=70
+        low warning=-19, low critical=-19 (in Celsius)
+      Element 7 descriptor:
+        high critical=125, high warning=108
+        low warning=-19, low critical=-19 (in Celsius)
+      Element 8 descriptor:
+        high critical=50, high warning=43
+        low warning=-1, low critical=-4 (in Celsius)
+      Element 9 descriptor:
+        high critical=50, high warning=43
+        low warning=-1, low critical=-4 (in Celsius)
+      Element 10 descriptor:
+        high critical=115, high warning=112
+        low warning=-19, low critical=-19 (in Celsius)
+      Element 11 descriptor:
+        high critical=115, high warning=112
+        low warning=-19, low critical=-19 (in Celsius)
+      Element 12 descriptor:
+        high critical=115, high warning=112
+        low warning=-19, low critical=-19 (in Celsius)
+      Element 13 descriptor:
+        high critical=115, high warning=112
+        low warning=-19, low critical=-19 (in Celsius)
+      Element 14 descriptor:
+        high critical=115, high warning=112
+        low warning=-19, low critical=-19 (in Celsius)
+      Element 15 descriptor:
+        high critical=115, high warning=112
+        low warning=-19, low critical=-19 (in Celsius)
+    Element type: Enclosure services controller electronics, subenclosure id: 0 [ti=4]
+      Overall descriptor:
+      Element 0 descriptor:
+      Element 1 descriptor:
+    Element type: Enclosure, subenclosure id: 0 [ti=5]
+      Overall descriptor:
+      Element 0 descriptor:
+    Element type: Voltage sensor, subenclosure id: 0 [ti=6]
+      Overall descriptor:
+        high critical=0.0 %, high warning=0.0 %
+        low warning=0.0 %, low critical=0.0 % (from nominal voltage)
+      Element 0 descriptor:
+        high critical=10.0 %, high warning=8.0 %
+        low warning=3.0 %, low critical=5.0 % (from nominal voltage)
+      Element 1 descriptor:
+        high critical=10.0 %, high warning=8.0 %
+        low warning=8.0 %, low critical=10.0 % (from nominal voltage)
+      Element 2 descriptor:
+        high critical=10.0 %, high warning=8.0 %
+        low warning=8.0 %, low critical=10.0 % (from nominal voltage)
+      Element 3 descriptor:
+        high critical=10.0 %, high warning=8.0 %
+        low warning=8.0 %, low critical=10.0 % (from nominal voltage)
+      Element 4 descriptor:
+        high critical=10.0 %, high warning=8.0 %
+        low warning=8.0 %, low critical=10.0 % (from nominal voltage)
+      Element 5 descriptor:
+        high critical=10.0 %, high warning=8.0 %
+        low warning=8.0 %, low critical=10.0 % (from nominal voltage)
+      Element 6 descriptor:
+        high critical=10.0 %, high warning=8.0 %
+        low warning=8.0 %, low critical=10.0 % (from nominal voltage)
+      Element 7 descriptor:
+        high critical=10.0 %, high warning=8.0 %
+        low warning=8.0 %, low critical=10.0 % (from nominal voltage)
+      Element 8 descriptor:
+        high critical=10.0 %, high warning=8.0 %
+        low warning=8.0 %, low critical=10.0 % (from nominal voltage)
+      Element 9 descriptor:
+        high critical=10.0 %, high warning=8.0 %
+        low warning=8.0 %, low critical=10.0 % (from nominal voltage)
+    Element type: SAS expander, subenclosure id: 0 [ti=7]
+      Overall descriptor:
+      Element 0 descriptor:
+      Element 1 descriptor:
+    Element type: SAS connector, subenclosure id: 0 [ti=8]
+      Overall descriptor:
+      Element 0 descriptor:
+      Element 1 descriptor:
+      Element 2 descriptor:
+      Element 3 descriptor:

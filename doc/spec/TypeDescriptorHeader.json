@@ -1,0 +1,48 @@
+{
+   "typeDescriptorHeader":{
+      "metadata":{
+         "name":"typeDescriptorHeader",
+         "length":-1,
+         "type":"page",
+         "head":[
+            "elementType",
+            "numberOfPossibleElement",
+            "subenclosureIdentifier",
+            "typeDescriptorTextLength"
+         ],
+         "offsetMap":{
+            "elementType":0,
+            "numberOfPossibleElement":8,
+            "subenclosureIdentifier":16,
+            "typeDescriptorTextLength":24
+         }
+      },
+    "elementType":{
+      "metadata":{
+         "name":"Element Type",
+         "length":8,
+         "type":"int",
+      }
+    },
+    "numberOfPossibleElement":{
+      "metadata":{
+         "name":"Number Of Possible Element",
+         "length":8,
+         "type":"int",        
+      }
+    },
+    "subenclosureIdentifier":{
+        "metadata":{
+           "name":"Subenclosure Identifer",
+           "length":8,
+           "type":"int",
+        }     
+    },
+    "typeDescriptorTextLength":{
+        "metadata":{
+           "name":"Type Descriptor Text Length",
+           "length":8,
+           "type":"int",
+        }    
+   }
+}

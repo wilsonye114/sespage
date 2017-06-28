@@ -1,0 +1,28 @@
+{
+	"configuration_diagnostic_page": {
+		"head":{
+			"page_code": 1,
+			"number_of_secondary_subenclosures": 0,
+			"page_length": 18,
+			"generation_code": 0,
+		},
+		"payload":{
+			"enclosure_descriptor_list": [
+				{
+					"NUMBER_OF_ENCLOSURE_SERVICES_PROCESSES": 0,
+					"RELATIVE_ENCLOSURE_SERVICES_PROCESS_IDENTIFIER": 0,
+					"SUBENCLOSURE IDENTIFIER": 0,
+					"NUMBER OF TYPE DESCRIPTOR HEADERS": 0,
+					"ENCLOSURE DESCRIPTOR LENGTH": 0,
+					"ENCLOSURE LOGICAL IDENTIFIER": 0,
+					"ENCLOSURE VENDOR IDENTIFICATION": 0,
+					"PRODUCT IDENTIFICATION": 0,
+					"PRODUCT REVISION LEVEL": 0,
+					"VENDOR SPECIFIC ENCLOSURE INFORMATION": 0
+				}
+			],
+			"type_descriptor_header_list": [],
+			"type_descirptor_text_list": []
+		}
+	}
+}

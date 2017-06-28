@@ -1,0 +1,41 @@
+  CELESTIC  R0934-X0001-01    0425
+Configuration diagnostic page:
+  number of secondary subenclosures: 0
+  generation code: 0x0
+  enclosure descriptor list
+    Subenclosure identifier: 0 [primary]
+      relative ES process id: 1, number of ES processes: 2
+      number of type descriptor headers: 9
+      enclosure logical identifier (hex): 500e0eca022412ff
+      enclosure vendor: CELESTIC  product: R0934-X0001-01    rev: 0425
+      vendor-specific data:
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+  type descriptor header/text list
+    Element type: Array device slot, subenclosure id: 0
+      number of possible elements: 60
+      text: Array Device Slot
+    Element type: Power supply, subenclosure id: 0
+      number of possible elements: 2
+      text: Power Supply
+    Element type: Cooling, subenclosure id: 0
+      number of possible elements: 6
+      text: Cooling
+    Element type: Temperature sensor, subenclosure id: 0
+      number of possible elements: 16
+      text: Temperature Sensor
+    Element type: Enclosure services controller electronics, subenclosure id: 0
+      number of possible elements: 2
+      text: ESM
+    Element type: Enclosure, subenclosure id: 0
+      number of possible elements: 1
+      text: Eros Enclosure
+    Element type: Voltage sensor, subenclosure id: 0
+      number of possible elements: 10
+      text: Voltage Sensor
+    Element type: SAS expander, subenclosure id: 0
+      number of possible elements: 2
+      text: SAS Expander
+    Element type: SAS connector, subenclosure id: 0
+      number of possible elements: 4
+      text: SAS Connector

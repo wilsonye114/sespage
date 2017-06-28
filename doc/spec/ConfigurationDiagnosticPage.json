@@ -1,0 +1,110 @@
+{
+    "configurationDiagnosticPage":{
+        "metadata":{
+            "name":"Configuration diagnostic page",
+            "length":-1,
+            "type":"page",
+            "head":[
+                "pageCode",
+                "numberOfSecondarySubenclosures",
+                "pageLength"
+            ],
+            "headLength":64,
+            "payload":[
+                "generationCode",
+                "enclosureDescriptorList",
+                "typeDescriptorHeaderList",
+                "typeDescirptorTextList"
+            ],
+            "payloadLength":-1,
+            "payloadLengthCalculation":"configurationDiagnosticPage.pageLength*8",
+            "offsetMap":{
+                "pageCode":0,
+                "numberOfSecondarySubenclosures":8,
+                "pageLength":16,
+                "generationCode":32,
+                "enclosureDescriptorList":64,
+                "typeDescriptorHeaderList":-1,
+                "typeDescirptorTextList":-1
+            }
+        },
+        "pageCode":{
+            "metadata":{
+                "name":"PAGE CODE",
+                "length":8,
+                "type":"int",
+                "value":1,
+                "const":true
+            }
+        },
+        "numberOfSecondarySubenclosures":{
+            "metadata":{
+                "name":"NUMBER OF SECONDARY SUBENCLOSURES",
+                "length":8,
+                "type":"int"
+            }
+        },
+        "pageLength":{
+            "metadata":{
+                "name":"PAGE LENGTH",
+                "length":16,
+                "type":"int",
+                "valueCalculation":"configurationDiagnosticPage.metadata.length/8 - 4",
+                "significantBit":{
+                    "msb":0,
+                    "lsb":16
+                }
+            }
+        },
+        "generationCode":{
+            "metadata":{
+                "name":"GENERATION CODE",
+                "length":32,
+                "type":"int",
+                "significantBit":{
+                    "msb":0,
+                    "lsb":16
+                }
+            }
+        },
+        "enclosureDescriptorList":{
+            "metadata":{
+                "name":"Enclosure descriptor list",
+                "length":-1,
+                "type":"list",
+                "listElementType":"enclosureDescriptor",
+                "elementNumber":-1,
+                "elementNumberCalculation":"configurationDiagnosticPage.numberOfSecondarySubenclosures + 1"
+            }
+        },
+        "typeDescriptorHeaderList":{
+            "metadata":{
+                "name":"Type descriptor header list",
+                "length":-1,
+                "type":"list",
+                "listElementType":"typeDescriptorHeader",
+                "elementNumber":-1,
+                "elementNumberCalculation":""
+            }
+        },
+        "typeDescirptorTextList":{
+            "metadata":{
+                "name":"Type descriptor text list",
+                "length":-1,
+                "type":"list",
+                "listElementType":"typeDescriptorText",
+                "elementNumber":-1,
+                "elementNumberCalculation":""
+            },
+            "typeDescirptorText":{
+              "metadata":{
+                 "name":"",
+                 "length":-1,
+                 "lengthCalculation":"",
+                 "type":"string",
+                 "characterSet":"ascii"
+              }
+            }
+        }
+    }
+}

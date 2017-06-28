@@ -1,0 +1,11 @@
+
+
+Configuration diagnostic page = 
+0:0,1:0	PAGE CODE
+	NUMBER OF SECONDARY SUBENCLOSURES
+	PAGE LENGTH
+	GENERATION CODE
+8:0,x:y	Enclosure descriptor list = Enclosure descriptor *
+	Type descriptor header list = Type descriptor header *
+	Type descriptor text list = Type descriptor text *
+https://jsonformatter.curiousconcept.com/

@@ -1,0 +1,149 @@
+{
+    "enclosureDescriptor":{
+        "metadata":{
+            "name":"Enclosure descriptor",
+            "length":-1,
+            "type":"page",
+            "head":[
+                "numberOfEnclosureServicesProcesses",
+                "reserved3",
+                "relativeEnclosureServicesProcessIdentifier",
+                "reserved7",
+                "subenclosureIdentifer",
+                "numberOfTypeDescriptorHeaders",
+                "enclosureDescriptorLength",
+            ],
+            "headLength":32,
+            "payload":[
+                "enclosureLogicalIdentifier",
+                "enclosureVendorIdentification",
+                "productIdentification",
+                "productRevisionLevel"
+                "vendorSpecificEnclosureInformation"
+            ],
+            "payloadLength":-1,
+            "payloadLengthCalculation":"enclosureDescriptor.enclosureDescriptorLength*8",
+            "offsetMap":{
+                "numberOfEnclosureServicesProcesses":0,
+                "reserved3":3,
+                "relativeEnclosureServicesProcessIdentifier":4,
+                "reserved7":7,
+                "subenclosureIdentifer":8,
+                "numberOfTypeDescriptorHeaders":16,
+                "enclosureDescriptorLength":24,
+                "enclosureLogicalIdentifier":32,
+                "enclosureVendorIdentification":96,
+                "productIdentification":160,
+                "productRevisionLevel":288,
+                "vendorSpecificEnclosureInformation":320
+            }
+        },
+        "numberOfEnclosureServicesProcesses":{
+            "metadata":{
+               "name":"Number Of Enclosure Services Processes",
+               "length":3,
+               "type":"int",
+               "explanation":{
+                  "unknown":{
+                     "enmu":[0],
+                     "desc":"the number is not known"
+                  }
+               }
+            }
+        },
+        "reserved3":{
+          "metadata":{
+             "name":"Reserved",
+             "length":1,
+             "type":"raw",
+          }
+        },
+        "relativeEnclosureServicesProcessIdentifier":{
+            "metadata":{
+               "name":"Relative Enclosure Services Process Identifier",
+               "length":3,
+               "type":"int",
+               "explanation":{
+                  "reserved":{
+                     "enmu":[0],
+                     "desc":"Reserved"
+                  }
+               }
+            }
+        },
+        "reserved7":{
+          "metadata":{
+             "name":"Reserved",
+             "length":1,
+             "type":"raw",
+          }
+        },
+        "subenclosureIdentifer":{
+            "metadata":{
+               "name":"Subenclosure Identifer",
+               "length":8,
+               "type":"int",
+            }
+        },
+        "numberOfTypeDescriptorHeaders":{
+            "metadata":{
+               "name":"Number Of Type Descriptor Headers",
+               "length":8,
+               "type":"int",
+            }
+        },
+        "enclosureDescriptorLength":{
+            "metadata":{
+               "name":"Number Of Type Descriptor Headers",
+               "length":8,
+               "type":"int",
+                "restriction":{
+                    "min":36,
+                    "max":252,
+                    "step":4
+                 },
+                 "valueCalculation":"enclosureDescriptor.metadata.length/8-4"
+            }
+        },
+        "enclosureLogicalIdentifier":{
+          "metadata":{
+             "name":"Enclosure Logical Identifier",
+             "length":64,
+             "type":"string",
+             "characterSet":"ascii"
+          }
+        },
+        "enclosureVendorIdentification":{
+          "metadata":{
+             "name":"Enclosure Vendor Identification",
+             "length":64,
+             "type":"string",
+             "characterSet":"ascii"
+          }
+        },
+        "productIdentification":{
+          "metadata":{
+             "name":"Product Identification",
+             "length":128,
+             "type":"string",
+             "characterSet":"ascii"
+          }
+        },
+        "productRevisionLevel":{
+          "metadata":{
+             "name":"Product Revision Level",
+             "length":32,
+             "type":"string",
+             "characterSet":"ascii"
+          }
+        },
+        "vendorSpecificEnclosureInformation":{
+          "metadata":{
+             "name":"Vendor Specific Enclosure Information",
+             "length":-1,
+             "lengthCalculation":"",
+             "type":"raw"
+          }
+        }
+    }
+}

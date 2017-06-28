@@ -1,0 +1,86 @@
+{
+   "element":{
+      "metadata":{
+         "name":"",
+         "length":0,
+         "type":""
+      }
+   },
+   "rawElement":{
+      "metadata":{
+         "name":"",
+         "length":0,
+         "lengthCalculation":"",
+         "type":"raw"
+      }
+   },
+   "intElement":{
+      "metadata":{
+         "name":"",
+         "length":0,
+         "type":"int",
+         "value":0,
+         "const":true,
+         "valueCalculation":"",
+         "significantBit":{
+            "msb":0,
+            "lsb":7
+         },
+         "restriction":{
+            "min":0,
+            "max":3,
+            "enmu":[5,9,12]
+         },
+         "explanation":{
+            "state1":{
+               "min":0,
+               "max":3,
+               "enmu":[6,8,10],
+               "desc":"an explanation of the value"
+            },
+            "state2":{
+               "min":20,
+               "max":23,
+               "enmu":[26,28,210],
+               "desc":"an explanation of the value"
+            }
+         }
+      }
+   },
+   "stringElement":{
+      "metadata":{
+         "name":"",
+         "length":0,
+         "type":"string",
+         "characterSet":"ascii"
+      }
+   },
+   "listElement":{
+      "metadata":{
+         "name":"Enclosure descriptor list",
+         "length":-1,
+         "type":"list",
+         "listElementType":"",
+         "elementNumber":-1,
+         "elementNumberCalculation":""
+      }
+   },
+   "pageElement":{
+      "metadata":{
+         "name":"",
+         "length":-1,
+         "type":"page",
+         "head":[
+
+         ],
+         "headLength":0,
+         "payload":[
+
+         ],
+         "payloadLength":-1,
+         "offsetMap":{
+
+         }
+      }
+   }
+}
