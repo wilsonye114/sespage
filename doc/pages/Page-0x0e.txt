@@ -1,0 +1,10 @@
+  CELESTIC  R0934-X0001-01    0425
+Download microcode status diagnostic page:
+  number of secondary subenclosures: 0
+  generation code: 0x0
+   subenclosure identifier: 0 [primary]
+     download microcode status: No download microcode operation in progress [0x0]
+     download microcode additional status: 0x0
+     download microcode maximum size: 2686954 bytes
+     download microcode expected buffer id: 0x0
+     download microcode expected buffer id offset: 0

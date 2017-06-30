@@ -1,0 +1,3 @@
+  CELESTIC  R0934-X0001-01    0425
+Cannot decode response from diagnostic page: <unknown>
+ 00     12 00 00 00                                         ....

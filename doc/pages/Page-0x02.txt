@@ -517,7 +517,7 @@ Enclosure Status diagnostic page:
       Element 0 descriptor:
         Predicted failure=0, Disabled=0, Swap=0, status: OK
         Ident=0, Hot swap=0, Fail=0, Requested on=0, Off=0
-        Actual speed=9900 rpm, Fan at third highest speed
+        Actual speed=9800 rpm, Fan at third highest speed
       Element 1 descriptor:
         Predicted failure=0, Disabled=0, Swap=0, status: OK
         Ident=0, Hot swap=0, Fail=0, Requested on=0, Off=0
@@ -525,11 +525,11 @@ Enclosure Status diagnostic page:
       Element 2 descriptor:
         Predicted failure=0, Disabled=0, Swap=0, status: OK
         Ident=0, Hot swap=0, Fail=0, Requested on=0, Off=0
-        Actual speed=9800 rpm, Fan at third highest speed
+        Actual speed=9900 rpm, Fan at third highest speed
       Element 3 descriptor:
         Predicted failure=0, Disabled=0, Swap=0, status: OK
         Ident=0, Hot swap=0, Fail=0, Requested on=0, Off=0
-        Actual speed=9800 rpm, Fan at third highest speed
+        Actual speed=9900 rpm, Fan at third highest speed
       Element 4 descriptor:
         Predicted failure=0, Disabled=0, Swap=0, status: OK
         Ident=0, Hot swap=0, Fail=0, Requested on=0, Off=0
@@ -573,12 +573,12 @@ Enclosure Status diagnostic page:
         Predicted failure=0, Disabled=0, Swap=0, status: OK
         Ident=0, Fail=0, OT failure=0, OT warning=0, UT failure=0
         UT warning=0
-        Temperature=26 C
+        Temperature=27 C
       Element 6 descriptor:
         Predicted failure=0, Disabled=0, Swap=0, status: OK
         Ident=0, Fail=0, OT failure=0, OT warning=0, UT failure=0
         UT warning=0
-        Temperature=26 C
+        Temperature=27 C
       Element 7 descriptor:
         Predicted failure=0, Disabled=0, Swap=0, status: OK
         Ident=0, Fail=0, OT failure=0, OT warning=0, UT failure=0
@@ -598,17 +598,17 @@ Enclosure Status diagnostic page:
         Predicted failure=0, Disabled=0, Swap=0, status: OK
         Ident=0, Fail=0, OT failure=0, OT warning=0, UT failure=0
         UT warning=0
-        Temperature=35 C
+        Temperature=36 C
       Element 11 descriptor:
         Predicted failure=0, Disabled=0, Swap=0, status: OK
         Ident=0, Fail=0, OT failure=0, OT warning=0, UT failure=0
         UT warning=0
-        Temperature=23 C
+        Temperature=24 C
       Element 12 descriptor:
         Predicted failure=0, Disabled=0, Swap=0, status: OK
         Ident=0, Fail=0, OT failure=0, OT warning=0, UT failure=0
         UT warning=0
-        Temperature=25 C
+        Temperature=26 C
       Element 13 descriptor:
         Predicted failure=0, Disabled=0, Swap=0, status: OK
         Ident=0, Fail=0, OT failure=0, OT warning=0, UT failure=0
@@ -623,7 +623,7 @@ Enclosure Status diagnostic page:
         Predicted failure=0, Disabled=0, Swap=0, status: OK
         Ident=0, Fail=0, OT failure=0, OT warning=0, UT failure=0
         UT warning=0
-        Temperature=28 C
+        Temperature=29 C
     Element type: Enclosure services controller electronics, subenclosure id: 0 [ti=4]
       Overall descriptor:
         Predicted failure=0, Disabled=0, Swap=0, status: OK
@@ -655,7 +655,7 @@ Enclosure Status diagnostic page:
         Predicted failure=0, Disabled=0, Swap=0, status: OK
         Ident=0, Fail=0,  Warn Over=0, Warn Under=0, Crit Over=0
         Crit Under=0
-        Voltage: 0.93 volts
+        Voltage: 0.92 volts
       Element 1 descriptor:
         Predicted failure=0, Disabled=0, Swap=0, status: OK
         Ident=0, Fail=0,  Warn Over=0, Warn Under=0, Crit Over=0

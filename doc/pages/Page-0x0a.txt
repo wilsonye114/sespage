@@ -1,0 +1,766 @@
+  CELESTIC  R0934-X0001-01    0425
+  Primary enclosure logical identifier (hex): 500e0eca022412ff
+Additional element status diagnostic page:
+  generation code: 0x0
+  additional element status descriptor list
+    Element type: Array device slot, subenclosure id: 0 [ti=0]
+      Element index: 1  eiioe=1
+        Transport protocol: SAS
+        number of phys: 1, not all phys: 1, device slot number: 0
+        phy index: 0
+          SAS device type: end device
+          initiator port for:
+          target port for: SSP
+          attached SAS address: 0x500e0eca0224127e
+          SAS address: 0x5000cca05c97e49d
+          phy identifier: 0x0
+      Element index: 2  eiioe=1
+        Transport protocol: SAS
+        number of phys: 1, not all phys: 1, device slot number: 1
+        phy index: 0
+          SAS device type: end device
+          initiator port for:
+          target port for: SSP
+          attached SAS address: 0x500e0eca0224127e
+          SAS address: 0x5000cca05c9856d1
+          phy identifier: 0x0
+      Element index: 3  eiioe=1
+        Transport protocol: SAS
+        number of phys: 1, not all phys: 1, device slot number: 2
+        phy index: 0
+          SAS device type: end device
+          initiator port for:
+          target port for: SSP
+          attached SAS address: 0x500e0eca0224127e
+          SAS address: 0x5000cca05c97e475
+          phy identifier: 0x0
+      Element index: 4  eiioe=1
+        Transport protocol: SAS
+        number of phys: 1, not all phys: 1, device slot number: 3
+        phy index: 0
+          SAS device type: end device
+          initiator port for:
+          target port for: SSP
+          attached SAS address: 0x500e0eca0224127e
+          SAS address: 0x5000cca05c983aed
+          phy identifier: 0x0
+      Element index: 5  eiioe=1
+        Transport protocol: SAS
+        number of phys: 1, not all phys: 1, device slot number: 4
+        phy index: 0
+          SAS device type: end device
+          initiator port for:
+          target port for: SSP
+          attached SAS address: 0x500e0eca0224127e
+          SAS address: 0x5000cca05c983419
+          phy identifier: 0x0
+      Element index: 6  eiioe=1
+        Transport protocol: SAS
+        number of phys: 1, not all phys: 1, device slot number: 5
+        phy index: 0
+          SAS device type: end device
+          initiator port for:
+          target port for: SSP
+          attached SAS address: 0x500e0eca0224127e
+          SAS address: 0x5000cca05c97658d
+          phy identifier: 0x0
+      Element index: 7  eiioe=1
+        Transport protocol: SAS
+        number of phys: 1, not all phys: 1, device slot number: 6
+        phy index: 0
+          SAS device type: end device
+          initiator port for:
+          target port for: SSP
+          attached SAS address: 0x500e0eca0224127e
+          SAS address: 0x5000cca05c98522d
+          phy identifier: 0x0
+      Element index: 8  eiioe=1
+        Transport protocol: SAS
+        number of phys: 1, not all phys: 1, device slot number: 7
+        phy index: 0
+          SAS device type: end device
+          initiator port for:
+          target port for: SSP
+          attached SAS address: 0x500e0eca0224127e
+          SAS address: 0x5000cca05c9852d1
+          phy identifier: 0x0
+      Element index: 9  eiioe=1
+        Transport protocol: SAS
+        number of phys: 1, not all phys: 1, device slot number: 8
+        phy index: 0
+          SAS device type: end device
+          initiator port for:
+          target port for: SSP
+          attached SAS address: 0x500e0eca0224127e
+          SAS address: 0x5000cca05c80dd99
+          phy identifier: 0x0
+      Element index: 10  eiioe=1
+        Transport protocol: SAS
+        number of phys: 1, not all phys: 1, device slot number: 9
+        phy index: 0
+          SAS device type: end device
+          initiator port for:
+          target port for: SSP
+          attached SAS address: 0x500e0eca0224127e
+          SAS address: 0x5000cca05c985615
+          phy identifier: 0x0
+      Element index: 11  eiioe=1
+        Transport protocol: SAS
+        number of phys: 1, not all phys: 1, device slot number: 10
+        phy index: 0
+          SAS device type: end device
+          initiator port for:
+          target port for: SSP
+          attached SAS address: 0x500e0eca0224127e
+          SAS address: 0x5000cca05c91c62d
+          phy identifier: 0x0
+      Element index: 12  eiioe=1
+        Transport protocol: SAS
+        number of phys: 1, not all phys: 1, device slot number: 11
+        phy index: 0
+          SAS device type: end device
+          initiator port for:
+          target port for: SSP
+          attached SAS address: 0x500e0eca0224127e
+          SAS address: 0x5000cca05c981ce5
+          phy identifier: 0x0
+      Element index: 13  eiioe=1
+        Transport protocol: SAS
+        number of phys: 1, not all phys: 1, device slot number: 12
+        phy index: 0
+          SAS device type: end device
+          initiator port for:
+          target port for: SSP
+          attached SAS address: 0x500e0eca0224127e
+          SAS address: 0x5000cca05c971865
+          phy identifier: 0x0
+      Element index: 14  eiioe=1
+        Transport protocol: SAS
+        number of phys: 1, not all phys: 1, device slot number: 13
+        phy index: 0
+          SAS device type: end device
+          initiator port for:
+          target port for: SSP
+          attached SAS address: 0x500e0eca0224127e
+          SAS address: 0x5000cca05c993a9d
+          phy identifier: 0x0
+      Element index: 15  eiioe=1
+        Transport protocol: SAS
+        number of phys: 1, not all phys: 1, device slot number: 14
+        phy index: 0
+          SAS device type: end device
+          initiator port for:
+          target port for: SSP
+          attached SAS address: 0x500e0eca0224127e
+          SAS address: 0x5000cca05c981e0d
+          phy identifier: 0x0
+      Element index: 16  eiioe=1
+        Transport protocol: SAS
+        number of phys: 1, not all phys: 1, device slot number: 15
+        phy index: 0
+          SAS device type: end device
+          initiator port for:
+          target port for: SSP
+          attached SAS address: 0x500e0eca0224127e
+          SAS address: 0x5000cca05c9852a1
+          phy identifier: 0x0
+      Element index: 17  eiioe=1
+        Transport protocol: SAS
+        number of phys: 1, not all phys: 1, device slot number: 16
+        phy index: 0
+          SAS device type: end device
+          initiator port for:
+          target port for: SSP
+          attached SAS address: 0x500e0eca0224127e
+          SAS address: 0x5000cca05c9812dd
+          phy identifier: 0x0
+      Element index: 18  eiioe=1
+        Transport protocol: SAS
+        number of phys: 1, not all phys: 1, device slot number: 17
+        phy index: 0
+          SAS device type: end device
+          initiator port for:
+          target port for: SSP
+          attached SAS address: 0x500e0eca0224127e
+          SAS address: 0x5000cca05c98ce2d
+          phy identifier: 0x0
+      Element index: 19  eiioe=1
+        Transport protocol: SAS
+        number of phys: 1, not all phys: 1, device slot number: 18
+        phy index: 0
+          SAS device type: end device
+          initiator port for:
+          target port for: SSP
+          attached SAS address: 0x500e0eca0224127e
+          SAS address: 0x5000cca05c989641
+          phy identifier: 0x0
+      Element index: 20  eiioe=1
+        Transport protocol: SAS
+        number of phys: 1, not all phys: 1, device slot number: 19
+        phy index: 0
+          SAS device type: end device
+          initiator port for:
+          target port for: SSP
+          attached SAS address: 0x500e0eca0224127e
+          SAS address: 0x5000cca05c9845a5
+          phy identifier: 0x0
+      Element index: 21  eiioe=1
+        Transport protocol: SAS
+        number of phys: 1, not all phys: 1, device slot number: 20
+        phy index: 0
+          SAS device type: end device
+          initiator port for:
+          target port for: SSP
+          attached SAS address: 0x500e0eca0224127e
+          SAS address: 0x5000cca05c989a29
+          phy identifier: 0x0
+      Element index: 22  eiioe=1
+        Transport protocol: SAS
+        number of phys: 1, not all phys: 1, device slot number: 21
+        phy index: 0
+          SAS device type: end device
+          initiator port for:
+          target port for: SSP
+          attached SAS address: 0x500e0eca0224127e
+          SAS address: 0x5000cca05c971789
+          phy identifier: 0x0
+      Element index: 23  eiioe=1
+        Transport protocol: SAS
+        number of phys: 1, not all phys: 1, device slot number: 22
+        phy index: 0
+          SAS device type: end device
+          initiator port for:
+          target port for: SSP
+          attached SAS address: 0x500e0eca0224127e
+          SAS address: 0x5000cca05c8e7511
+          phy identifier: 0x0
+      Element index: 24  eiioe=1
+        Transport protocol: SAS
+        number of phys: 1, not all phys: 1, device slot number: 23
+        phy index: 0
+          SAS device type: end device
+          initiator port for:
+          target port for: SSP
+          attached SAS address: 0x500e0eca0224127e
+          SAS address: 0x5000cca05c9773c5
+          phy identifier: 0x0
+      Element index: 25  eiioe=1
+        Transport protocol: SAS
+        number of phys: 1, not all phys: 1, device slot number: 24
+        phy index: 0
+          SAS device type: end device
+          initiator port for:
+          target port for: SSP
+          attached SAS address: 0x500e0eca0224127e
+          SAS address: 0x5000cca05c98b225
+          phy identifier: 0x0
+      Element index: 26  eiioe=1
+        Transport protocol: SAS
+        number of phys: 1, not all phys: 1, device slot number: 25
+        phy index: 0
+          SAS device type: end device
+          initiator port for:
+          target port for: SSP
+          attached SAS address: 0x500e0eca0224127e
+          SAS address: 0x5000cca05c98143d
+          phy identifier: 0x0
+      Element index: 27  eiioe=1
+        Transport protocol: SAS
+        number of phys: 1, not all phys: 1, device slot number: 26
+        phy index: 0
+          SAS device type: end device
+          initiator port for:
+          target port for: SSP
+          attached SAS address: 0x500e0eca0224127e
+          SAS address: 0x5000cca05c989645
+          phy identifier: 0x0
+      Element index: 28  eiioe=1
+        Transport protocol: SAS
+        number of phys: 1, not all phys: 1, device slot number: 27
+        phy index: 0
+          SAS device type: end device
+          initiator port for:
+          target port for: SSP
+          attached SAS address: 0x500e0eca0224127e
+          SAS address: 0x5000cca05c982b59
+          phy identifier: 0x0
+      Element index: 29  eiioe=1
+        Transport protocol: SAS
+        number of phys: 1, not all phys: 1, device slot number: 28
+        phy index: 0
+          SAS device type: end device
+          initiator port for:
+          target port for: SSP
+          attached SAS address: 0x500e0eca0224127e
+          SAS address: 0x5000cca05c97ecbd
+          phy identifier: 0x0
+      Element index: 30  eiioe=1
+        Transport protocol: SAS
+        number of phys: 1, not all phys: 1, device slot number: 29
+        phy index: 0
+          SAS device type: end device
+          initiator port for:
+          target port for: SSP
+          attached SAS address: 0x500e0eca0224127e
+          SAS address: 0x5000cca05c983471
+          phy identifier: 0x0
+      Element index: 31  eiioe=1
+        Transport protocol: SAS
+        number of phys: 1, not all phys: 1, device slot number: 30
+        phy index: 0
+          SAS device type: end device
+          initiator port for:
+          target port for: SSP
+          attached SAS address: 0x500e0eca0224127e
+          SAS address: 0x5000cca05c981965
+          phy identifier: 0x0
+      Element index: 32  eiioe=1
+        Transport protocol: SAS
+        number of phys: 1, not all phys: 1, device slot number: 31
+        phy index: 0
+          SAS device type: end device
+          initiator port for:
+          target port for: SSP
+          attached SAS address: 0x500e0eca0224127e
+          SAS address: 0x5000cca05c9664d1
+          phy identifier: 0x0
+      Element index: 33  eiioe=1
+        Transport protocol: SAS
+        number of phys: 1, not all phys: 1, device slot number: 32
+        phy index: 0
+          SAS device type: end device
+          initiator port for:
+          target port for: SSP
+          attached SAS address: 0x500e0eca0224127e
+          SAS address: 0x5000cca05c949135
+          phy identifier: 0x0
+      Element index: 34  eiioe=1
+        Transport protocol: SAS
+        number of phys: 1, not all phys: 1, device slot number: 33
+        phy index: 0
+          SAS device type: end device
+          initiator port for:
+          target port for: SSP
+          attached SAS address: 0x500e0eca0224127e
+          SAS address: 0x5000cca05c97e4cd
+          phy identifier: 0x0
+      Element index: 35  eiioe=1
+        Transport protocol: SAS
+        number of phys: 1, not all phys: 1, device slot number: 34
+        phy index: 0
+          SAS device type: end device
+          initiator port for:
+          target port for: SSP
+          attached SAS address: 0x500e0eca0224127e
+          SAS address: 0x5000cca05c9851ed
+          phy identifier: 0x0
+      Element index: 36  eiioe=1
+        Transport protocol: SAS
+        number of phys: 1, not all phys: 1, device slot number: 35
+        phy index: 0
+          SAS device type: end device
+          initiator port for:
+          target port for: SSP
+          attached SAS address: 0x500e0eca0224127e
+          SAS address: 0x5000cca05c989009
+          phy identifier: 0x0
+      Element index: 37  eiioe=1
+        Transport protocol: SAS
+        number of phys: 1, not all phys: 1, device slot number: 36
+        phy index: 0
+          SAS device type: end device
+          initiator port for:
+          target port for: SSP
+          attached SAS address: 0x500e0eca0224127e
+          SAS address: 0x5000c5006bc88a19
+          phy identifier: 0x0
+      Element index: 38  eiioe=1
+        Transport protocol: SAS
+        number of phys: 1, not all phys: 1, device slot number: 37
+        phy index: 0
+          SAS device type: end device
+          initiator port for:
+          target port for: SSP
+          attached SAS address: 0x500e0eca0224127e
+          SAS address: 0x5000c50054da8fcd
+          phy identifier: 0x0
+      Element index: 39  eiioe=1
+        Transport protocol: SAS
+        number of phys: 1, not all phys: 1, device slot number: 38
+        phy index: 0
+          SAS device type: end device
+          initiator port for:
+          target port for: SSP
+          attached SAS address: 0x500e0eca0224127e
+          SAS address: 0x5000c5005e6e5611
+          phy identifier: 0x0
+      Element index: 40  eiioe=1
+        Transport protocol: SAS
+        number of phys: 1, not all phys: 1, device slot number: 39
+        phy index: 0
+          SAS device type: end device
+          initiator port for:
+          target port for: SSP
+          attached SAS address: 0x500e0eca0224127e
+          SAS address: 0x5000c5005e6c2bfd
+          phy identifier: 0x0
+      Element index: 41  eiioe=1
+        Transport protocol: SAS
+        number of phys: 1, not all phys: 1, device slot number: 40
+        phy index: 0
+          SAS device type: end device
+          initiator port for:
+          target port for: SSP
+          attached SAS address: 0x500e0eca0224127e
+          SAS address: 0x50000394a8d0a31e
+          phy identifier: 0x0
+      Element index: 42  eiioe=1
+        Transport protocol: SAS
+        number of phys: 1, not all phys: 1, device slot number: 41
+        phy index: 0
+          SAS device type: end device
+          initiator port for:
+          target port for: SSP
+          attached SAS address: 0x500e0eca0224127e
+          SAS address: 0x5000c500541fdab1
+          phy identifier: 0x0
+      Element index: 43  eiioe=1
+        Transport protocol: SAS
+        number of phys: 1, not all phys: 1, device slot number: 42
+        phy index: 0
+          SAS device type: end device
+          initiator port for:
+          target port for: SSP
+          attached SAS address: 0x500e0eca0224127e
+          SAS address: 0x5000c5005e6e5bb5
+          phy identifier: 0x0
+      Element index: 44  eiioe=1
+        Transport protocol: SAS
+        number of phys: 1, not all phys: 1, device slot number: 43
+        phy index: 0
+          SAS device type: end device
+          initiator port for:
+          target port for: SSP
+          attached SAS address: 0x500e0eca0224127e
+          SAS address: 0x5000c500006f5449
+          phy identifier: 0x0
+      Element index: 45  eiioe=1
+        Transport protocol: SAS
+        number of phys: 1, not all phys: 1, device slot number: 44
+        phy index: 0
+          SAS device type: end device
+          initiator port for:
+          target port for: SSP
+          attached SAS address: 0x500e0eca0224127e
+          SAS address: 0x5000c500580e0881
+          phy identifier: 0x0
+      Element index: 46  eiioe=1
+        Transport protocol: SAS
+        number of phys: 1, not all phys: 1, device slot number: 45
+        phy index: 0
+          SAS device type: end device
+          initiator port for:
+          target port for: SSP
+          attached SAS address: 0x500e0eca0224127e
+          SAS address: 0x5000c500582051ed
+          phy identifier: 0x0
+      Element index: 47  eiioe=1
+        Transport protocol: SAS
+        number of phys: 1, not all phys: 1, device slot number: 46
+        phy index: 0
+          SAS device type: end device
+          initiator port for:
+          target port for: SSP
+          attached SAS address: 0x500e0eca0224127e
+          SAS address: 0x5000c500006f848d
+          phy identifier: 0x0
+      Element index: 48  eiioe=1
+        Transport protocol: SAS
+        number of phys: 1, not all phys: 1, device slot number: 47
+        phy index: 0
+          SAS device type: end device
+          initiator port for:
+          target port for: SSP
+          attached SAS address: 0x500e0eca0224127e
+          SAS address: 0x5000c500418d5025
+          phy identifier: 0x0
+      Element index: 49  eiioe=1
+        Transport protocol: SAS
+        number of phys: 1, not all phys: 1, device slot number: 48
+        phy index: 0
+          SAS device type: end device
+          initiator port for:
+          target port for: SSP
+          attached SAS address: 0x500e0eca0224127e
+          SAS address: 0x50000c0f01d287de
+          phy identifier: 0x0
+      Element index: 50  eiioe=1
+        Transport protocol: SAS
+        number of phys: 1, not all phys: 1, device slot number: 49
+        phy index: 0
+          SAS device type: end device
+          initiator port for:
+          target port for: SSP
+          attached SAS address: 0x500e0eca0224127e
+          SAS address: 0x50000394a8d0600a
+          phy identifier: 0x0
+      Element index: 51  eiioe=1
+        Transport protocol: SAS
+        number of phys: 1, not all phys: 1, device slot number: 50
+        phy index: 0
+          SAS device type: end device
+          initiator port for:
+          target port for: SSP
+          attached SAS address: 0x500e0eca0224127e
+          SAS address: 0x50000394a8d0a426
+          phy identifier: 0x0
+      Element index: 52  eiioe=1
+        Transport protocol: SAS
+        number of phys: 1, not all phys: 1, device slot number: 51
+        phy index: 0
+          SAS device type: end device
+          initiator port for:
+          target port for: SSP
+          attached SAS address: 0x500e0eca0224127e
+          SAS address: 0x5000c50059b4d425
+          phy identifier: 0x0
+      Element index: 53  eiioe=1
+        Transport protocol: SAS
+        number of phys: 1, not all phys: 1, device slot number: 52
+        phy index: 0
+          SAS device type: end device
+          initiator port for:
+          target port for: SSP
+          attached SAS address: 0x500e0eca0224127e
+          SAS address: 0x50000394a8d0a246
+          phy identifier: 0x0
+      Element index: 54  eiioe=1
+        Transport protocol: SAS
+        number of phys: 1, not all phys: 1, device slot number: 53
+        phy index: 0
+          SAS device type: end device
+          initiator port for:
+          target port for: SSP
+          attached SAS address: 0x500e0eca0224127e
+          SAS address: 0x5000c50041927181
+          phy identifier: 0x0
+      Element index: 55  eiioe=1
+        Transport protocol: SAS
+        number of phys: 1, not all phys: 1, device slot number: 54
+        phy index: 0
+          SAS device type: end device
+          initiator port for:
+          target port for: SSP
+          attached SAS address: 0x500e0eca0224127e
+          SAS address: 0x50000394a8d0a32a
+          phy identifier: 0x0
+      Element index: 56  eiioe=1
+        Transport protocol: SAS
+        number of phys: 1, not all phys: 1, device slot number: 55
+        phy index: 0
+          SAS device type: end device
+          initiator port for:
+          target port for: SSP
+          attached SAS address: 0x500e0eca0224127e
+          SAS address: 0x5000c50020d4d9fd
+          phy identifier: 0x0
+      Element index: 57  eiioe=1
+        Transport protocol: SAS
+        number of phys: 1, not all phys: 1, device slot number: 56
+        phy index: 0
+          SAS device type: end device
+          initiator port for:
+          target port for: SSP
+          attached SAS address: 0x500e0eca0224127e
+          SAS address: 0x5000c50059f8a3f9
+          phy identifier: 0x0
+      Element index: 58  eiioe=1
+        Transport protocol: SAS
+        number of phys: 1, not all phys: 1, device slot number: 57
+        phy index: 0
+          SAS device type: end device
+          initiator port for:
+          target port for: SSP
+          attached SAS address: 0x500e0eca0224127e
+          SAS address: 0x5000c50055d11a49
+          phy identifier: 0x0
+      Element index: 59  eiioe=1
+        Transport protocol: SAS
+        number of phys: 1, not all phys: 1, device slot number: 58
+        phy index: 0
+          SAS device type: end device
+          initiator port for:
+          target port for: SSP
+          attached SAS address: 0x500e0eca0224127e
+          SAS address: 0x50000394a8d07262
+          phy identifier: 0x0
+      Element index: 60  eiioe=1
+        Transport protocol: SAS
+        number of phys: 1, not all phys: 1, device slot number: 59
+        phy index: 0
+          SAS device type: end device
+          initiator port for:
+          target port for: SSP
+          attached SAS address: 0x500e0eca0224127e
+          SAS address: 0x5000c50055bfbd4d
+          phy identifier: 0x0
+    Element type: Enclosure services controller electronics, subenclosure id: 0 [ti=4]
+      Element index: 89  eiioe=1
+        Transport protocol: SAS
+        number of phys: 1
+        phy index: 0
+          phy identifier: 0x44
+          no attached connector, other element index: 89
+          SAS address: 0x500e0eca0224127d
+      Element index: 90  eiioe=1
+        Transport protocol: SAS
+        number of phys: 1
+        phy index: 0
+          phy identifier: 0x44
+          no attached connector, other element index: 90
+          SAS address: 0x500e0eca022412fd
+    Element type: SAS expander, subenclosure id: 0 [ti=7]
+      Element index: 105  eiioe=1
+        Transport protocol: SAS
+        number of phys: 68
+        SAS address: 0x500e0eca0224127d
+          [0] no attached connector, other element index: 60
+          [1] no attached connector, other element index: 48
+          [2] no attached connector, other element index: 59
+          [3] no attached connector, other element index: 36
+          [4] no attached connector, other element index: 24
+          [5] no attached connector, other element index: 57
+          [6] no attached connector, other element index: 58
+          [7] no attached connector, other element index: 56
+          [8] no attached connector, other element index: 12
+          [9] no attached connector, other element index: 47
+          [10] no attached connector, other element index: 35
+          [11] no attached connector, other element index: 23
+          [12] no attached connector, other element index: 55
+          [13] no attached connector, other element index: 46
+          [14] no attached connector, other element index: 11
+          [15] no attached connector, other element index: 34
+          [16] no attached connector, other element index: 22
+          [17] no attached connector, other element index: 10
+          [18] no attached connector, other element index: 45
+          [19] no attached connector, other element index: 21
+          [20] no attached connector, other element index: 33
+          [21] no attached connector, other element index: 32
+          [22] no attached connector, other element index: 54
+          [23] no attached connector, other element index: 44
+          [24] no attached connector, other element index: 43
+          [25] no attached connector, other element index: 20
+          [26] no attached connector, other element index: 9
+          [27] no attached connector, other element index: 8
+          [28] no attached connector, other element index: 31
+          [29] no attached connector, other element index: 53
+          [30] no attached connector, other element index: 42
+          [31] no attached connector, other element index: 30
+          [32] no attached connector, other element index: 19
+          [33] no attached connector, other element index: 29
+          [34] no attached connector, other element index: 7
+          [35] no attached connector, other element index: 41
+          [36] no attached connector, other element index: 18
+          [37] no attached connector, other element index: 6
+          [38] no attached connector, other element index: 52
+          [39] no attached connector, other element index: 17
+          [40] no attached connector, other element index: 5
+          [41] no attached connector, other element index: 28
+          [42] no attached connector, other element index: 40
+          [43] no attached connector, other element index: 16
+          [44] no attached connector, other element index: 4
+          [45] no attached connector, other element index: 39
+          [46] no attached connector, other element index: 51
+          [47] no attached connector, other element index: 27
+          [48] no attached connector, other element index: 3
+          [49] no attached connector, other element index: 15
+          [50] no attached connector, other element index: 50
+          [51] no attached connector, other element index: 38
+          [52] no attached connector, other element index: 26
+          [53] no attached connector, other element index: 14
+          [54] no attached connector, other element index: 2
+          [55] no attached connector, other element index: 1
+          [56] no attached connector, other element index: 25
+          [57] no attached connector, other element index: 13
+          [58] no attached connector, other element index: 37
+          [59] no attached connector, other element index: 49
+          [60] connector element index: 108
+          [61] connector element index: 108
+          [62] connector element index: 108
+          [63] connector element index: 108
+          [64] connector element index: 109
+          [65] connector element index: 109
+          [66] connector element index: 109
+          [67] connector element index: 109
+      Element index: 106  eiioe=1
+        Transport protocol: SAS
+        number of phys: 68
+        SAS address: 0x500e0eca022412fd
+          [0] no attached connector, other element index: 60
+          [1] connector element index: 22, other element index: 18
+          [2] no attached connector, other element index: 59
+          [3] no attached connector, other element index: 36
+          [4] no attached connector, other element index: 24
+          [5] no attached connector, other element index: 57
+          [6] no attached connector, other element index: 58
+          [7] no attached connector, other element index: 56
+          [8] no attached connector, other element index: 12
+          [9] no attached connector, other element index: 47
+          [10] no attached connector, other element index: 35
+          [11] no attached connector, other element index: 23
+          [12] no attached connector, other element index: 55
+          [13] no attached connector, other element index: 46
+          [14] no attached connector, other element index: 11
+          [15] no attached connector, other element index: 34
+          [16] no attached connector, other element index: 22
+          [17] no attached connector, other element index: 10
+          [18] no attached connector, other element index: 45
+          [19] no attached connector, other element index: 21
+          [20] no attached connector, other element index: 33
+          [21] no attached connector, other element index: 32
+          [22] no attached connector, other element index: 54
+          [23] no attached connector, other element index: 44
+          [24] no attached connector, other element index: 43
+          [25] no attached connector, other element index: 20
+          [26] no attached connector, other element index: 9
+          [27] no attached connector, other element index: 8
+          [28] no attached connector, other element index: 31
+          [29] no attached connector, other element index: 53
+          [30] no attached connector, other element index: 42
+          [31] no attached connector, other element index: 30
+          [32] no attached connector, other element index: 19
+          [33] no attached connector, other element index: 29
+          [34] no attached connector, other element index: 7
+          [35] no attached connector, other element index: 41
+          [36] no attached connector, other element index: 18
+          [37] no attached connector, other element index: 6
+          [38] no attached connector, other element index: 52
+          [39] no attached connector, other element index: 17
+          [40] no attached connector, other element index: 5
+          [41] no attached connector, other element index: 28
+          [42] no attached connector, other element index: 40
+          [43] no attached connector, other element index: 16
+          [44] no attached connector, other element index: 4
+          [45] no attached connector, other element index: 39
+          [46] no attached connector, other element index: 51
+          [47] no attached connector, other element index: 27
+          [48] no attached connector, other element index: 3
+          [49] no attached connector, other element index: 15
+          [50] no attached connector, other element index: 50
+          [51] no attached connector, other element index: 38
+          [52] no attached connector, other element index: 26
+          [53] no attached connector, other element index: 14
+          [54] no attached connector, other element index: 2
+          [55] no attached connector, other element index: 1
+          [56] no attached connector, other element index: 25
+          [57] no attached connector, other element index: 13
+          [58] no attached connector, other element index: 37
+          [59] no attached connector, other element index: 49
+          [60] connector element index: 108
+          [61] connector element index: 108
+          [62] connector element index: 108
+          [63] connector element index: 108
+          [64] connector element index: 109
+          [65] connector element index: 109
+          [66] connector element index: 109
+          [67] connector element index: 109

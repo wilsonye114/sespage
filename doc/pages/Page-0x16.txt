@@ -1,0 +1,6 @@
+  CELESTIC  R0934-X0001-01    0425
+Cannot decode response from diagnostic page: <unknown>
+ 00     16 00 00 35 00 00 02 03  06 04 10 12 0a 4e d4 ff    ...5.........N..
+ 10     3a 4e d4 ff 6b 7a df ff  6b 7a df ff 3a 4e d4 ff    :N..kz..kz..:N..
+ 20     3a 4e d4 ff 3a 4e d4 ff  3a 4e d4 ff 3a 4e d4 ff    :N..:N..:N..:N..
+ 30     3a 4e d4 ff 3a 4e d4 ff  3a                         :N..:N..:
