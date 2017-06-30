@@ -61,7 +61,7 @@ func (p *ConfigurationDiagnosticPage) Decode(data []byte) error {
 			var strelem StringElement
 			strelem.Decode(data[offset:offset+int32(header.TypeDescriptorTextLength)])
 			p.TypeDescriptorTextList = append(p.TypeDescriptorTextList, strelem)
-			p.TypeDescriptorHeaderList[i].Link_TypeDescriptorText = strelem
+			p.TypeDescriptorHeaderList[i].TypeDescriptorText_Copy = strelem
 			offset += int32(header.TypeDescriptorTextLength)
 		}
 	}
@@ -125,7 +125,7 @@ type TypeDescriptorHeader struct {
 	NumberOfPossibleElements Int8Element
 	SubenclosureIdentifier Int8Element
 	TypeDescriptorTextLength Int8Element
-	Link_TypeDescriptorText StringElement
+	TypeDescriptorText_Copy StringElement
 }
 
 func (d *TypeDescriptorHeader) Length() int32 {

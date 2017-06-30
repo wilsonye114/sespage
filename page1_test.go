@@ -9,7 +9,7 @@ import (
 	"log"
 )
 
-func TestPage1(t *testing.T) {
+func TestPage1Virtual(t *testing.T) {
 	raw := []byte{
 		0x01, 0x00, 0x00, 0xe7, 0x00, 0x00, 0x00, 0x00, 0x12, 0x00, 0x09, 0x44, 0x50, 0x0e, 0x0e, 0xca,
 		0x02, 0x24, 0x12, 0xff, 0x43, 0x45, 0x4c, 0x45, 0x53, 0x54, 0x49, 0x43, 0x52, 0x30, 0x39, 0x33,
@@ -37,17 +37,17 @@ func TestPage1(t *testing.T) {
 func TestPage1SgSes(t *testing.T) {
 	var out bytes.Buffer
 
-	cmd := exec.Command("sg_ses", "--page=0x01", "-rr", "/dev/sg1")
+	cmd := exec.Command("sg_ses", "--page=0x01", "-rr", "/dev/sg123")
 	cmd.Stdout = &out
 	err := cmd.Run()
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Printf("%q\n", out.String())
+	fmt.Printf("sg123 - SES Page1 Raw Data:\n%q\n", out.String())
 	raw := out.Bytes()
 	page := ConfigurationDiagnosticPage{}
 	page.Decode(raw)
 	js, _ := json.MarshalIndent(page, "", "    ")
-	fmt.Printf("%s\n", js)
+	fmt.Printf("Json:\n%s\n", js)
 
 }
