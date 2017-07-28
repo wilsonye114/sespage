@@ -81,11 +81,12 @@ func (p *ConfigurationDiagnosticPage) DecodeHead(data []byte) error {
 // }
 
 func NewConfigurationDiagnosticPage() *ConfigurationDiagnosticPage {
+	ef := NewDefaultElementFactory()
 	page := &ConfigurationDiagnosticPage{
-		PageCode: NewUint8Element(),
-		NumberOfSecondarySubenclosures: NewUint8Element(),
-		PageLength: NewUint16Element(),
-		GenerationCode: NewUint32Element()}
+		PageCode: ef.CreateElement("Uint8Element").(Uint8Field),
+		NumberOfSecondarySubenclosures: ef.CreateElement("Uint8Element").(Uint8Field),
+		PageLength: ef.CreateElement("Uint16Element").(Uint16Field),
+		GenerationCode: ef.CreateElement("Uint32Element").(Uint32Field)}
 	return page
 }
 

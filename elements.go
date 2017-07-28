@@ -14,7 +14,7 @@ func (f *ElementFactory) Unregister(name string) {
 	delete(f.creators, name)
 }
 
-func (f *ElementFactory) CreaterElement(name string) Element {
+func (f *ElementFactory) CreateElement(name string) Element {
 	if creator, ok := f.creators[name]; ok {
 		return creator()
 	}

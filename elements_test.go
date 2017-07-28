@@ -26,7 +26,7 @@ func TestElementCreator(t *testing.T) {
 	if count1 != count3 {
 		panic("Unregister Error")
 	}	
-	elem := ef.CreaterElement("Int64Element")
+	elem := ef.CreateElement("Int64Element")
 	log.Printf("%T\n", elem)
 	i64elem := elem.(*Int64Element)
 	log.Printf("%T\n", i64elem)
