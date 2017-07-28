@@ -4,9 +4,9 @@ import (
 	"testing"
 	"encoding/json"
 	"fmt"
-	"os/exec"
-	"bytes"
-	"log"
+	// "os/exec"
+	// "bytes"
+	// "log"
 )
 
 func TestPage1Virtual(t *testing.T) {
@@ -26,28 +26,30 @@ func TestPage1Virtual(t *testing.T) {
 		0x00, 0x56, 0x6f, 0x6c, 0x74, 0x61, 0x67, 0x65, 0x20, 0x53, 0x65, 0x6e, 0x73, 0x6f, 0x72, 0x00,
 		0x53, 0x41, 0x53, 0x20, 0x45, 0x78, 0x70, 0x61, 0x6e, 0x64, 0x65, 0x72, 0x00, 0x53, 0x41, 0x53,
 		0x20, 0x43, 0x6f, 0x6e, 0x6e, 0x65, 0x63, 0x74, 0x6f, 0x72, 0x00}
-	page := ConfigurationDiagnosticPage{}
-	// page.DecodeHead(raw)
-	page.Decode(raw)
+	// page := ConfigurationDiagnosticPage{}
+	page := NewConfigurationDiagnosticPage()
+	page.DecodeHead(raw)
+	// page.Decode(raw)
 
 	js, _ := json.MarshalIndent(page, "", "    ")
 	fmt.Printf("%s\n", js)
 }
 
-func TestPage1SgSes(t *testing.T) {
-	var out bytes.Buffer
+// func TestPage1SgSes(t *testing.T) {
+// 	var out bytes.Buffer
 
-	cmd := exec.Command("sg_ses", "--page=0x01", "-rr", "/dev/sg123")
-	cmd.Stdout = &out
-	err := cmd.Run()
-	if err != nil {
-		log.Fatal(err)
-	}
-	fmt.Printf("sg123 - SES Page1 Raw Data:\n%q\n", out.String())
-	raw := out.Bytes()
-	page := ConfigurationDiagnosticPage{}
-	page.Decode(raw)
-	js, _ := json.MarshalIndent(page, "", "    ")
-	fmt.Printf("Json:\n%s\n", js)
+// 	cmd := exec.Command("sg_ses", "--page=0x01", "-rr", "/dev/sg123")
+// 	cmd.Stdout = &out
+// 	err := cmd.Run()
+// 	if err != nil {
+// 		log.Fatal(err)
+// 	}
+// 	fmt.Printf("sg123 - SES Page1 Raw Data:\n%q\n", out.String())
+// 	raw := out.Bytes()
+// 	// page := ConfigurationDiagnosticPage{}
+// 	page := NewConfigurationDiagnosticPage()
+// 	page.Decode(raw)
+// 	js, _ := json.MarshalIndent(page, "", "    ")
+// 	fmt.Printf("Json:\n%s\n", js)
 
-}
+// }
