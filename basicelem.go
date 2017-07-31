@@ -620,4 +620,39 @@ func CreateHexStringElement() Element {
 	return &elem
 }
 
+type Codes map[uint8]string
+
+type CodeElement struct {
+	Code uint8
+	Name string
+	codes Codes
+}
+
+func (e *CodeElement) Decode(data []byte) error {
+	if len(data) < 1 {
+		return fmt.Errorf("Expect 1 byte data, got %d", len(data))
+	}
+	e.Code = uint8(data[0])
+	e.Name = e.codes[e.Code]
+	return nil
+}
+
+func (e *CodeElement) Encode() ([]byte, error) {
+	return []byte{byte(e.Code)}, nil
+}
+
+func (e *CodeElement) Length() int32 {
+	return 1
+}
+
+func (e *CodeElement) Uint8() uint8 {
+	return e.Code
+}
+
+func (e *CodeElement) SetUint8(v uint8) {
+	e.Code = v
+	e.Name = e.codes[e.Code]
+}
+
+
 

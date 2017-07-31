@@ -81,7 +81,7 @@ func (p *ConfigurationDiagnosticPage) DecodeHead(data []byte) error {
 // }
 
 func NewConfigurationDiagnosticPage() *ConfigurationDiagnosticPage {
-	ef := NewDefaultElementFactory()
+	ef := GetEF("default")
 	page := &ConfigurationDiagnosticPage{
 		PageCode: ef.CreateElement("Uint8Element").(Uint8Field),
 		NumberOfSecondarySubenclosures: ef.CreateElement("Uint8Element").(Uint8Field),
