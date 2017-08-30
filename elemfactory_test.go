@@ -32,7 +32,7 @@ func TestElementCreator(t *testing.T) {
 }
 
 func TestDefaultElementCreator(t *testing.T) {
-	ef := GetEF("Default")
+	ef := GetEF("default")
 	names1 := ef.ListAllElements()
 	log.Printf("%v\n", names1)
 	count1 := len(names1)

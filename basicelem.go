@@ -620,15 +620,15 @@ func CreateHexStringElement() Element {
 	return &elem
 }
 
-type Codes map[uint8]string
+type Uint8Codes map[uint8]string
 
-type CodeElement struct {
+type Uint8CodeElement struct {
 	Code uint8
 	Name string
-	codes Codes
+	codes Uint8Codes
 }
 
-func (e *CodeElement) Decode(data []byte) error {
+func (e *Uint8CodeElement) Decode(data []byte) error {
 	if len(data) < 1 {
 		return fmt.Errorf("Expect 1 byte data, got %d", len(data))
 	}
@@ -637,19 +637,19 @@ func (e *CodeElement) Decode(data []byte) error {
 	return nil
 }
 
-func (e *CodeElement) Encode() ([]byte, error) {
+func (e *Uint8CodeElement) Encode() ([]byte, error) {
 	return []byte{byte(e.Code)}, nil
 }
 
-func (e *CodeElement) Length() int32 {
+func (e *Uint8CodeElement) Length() int32 {
 	return 1
 }
 
-func (e *CodeElement) Uint8() uint8 {
+func (e *Uint8CodeElement) Uint8() uint8 {
 	return e.Code
 }
 
-func (e *CodeElement) SetUint8(v uint8) {
+func (e *Uint8CodeElement) SetUint8(v uint8) {
 	e.Code = v
 	e.Name = e.codes[e.Code]
 }

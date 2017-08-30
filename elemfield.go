@@ -1,23 +1,100 @@
 package sespage
 
 import (
-	// "fmt"
+	"fmt"
 )
 
 /****************************************************************************
+*  Table
+* +----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+
+* | Byte\Bit |     7     |     6     |     5     |     4     |     3     |     2     |     1     |     0     |
+* +==========+===========+===========+===========+===========+===========+===========+===========+===========+
+* |   0      |                                                                                               |
+* +----------+-----------------------------------------------------------------------------------------------+
+* |   1      |                                                                                               |
+* +----------+-----------------------------------------------------------------------------------------------+
+* |   2      |                                                                                               |
+* +----------+-----------------------------------------------------------------------------------------------+
+* |   3      |                                                                                               |
+* +----------+-----------------------------------------------------------------------------------------------+
+* 
+****************************************************************************/
+
+/****************************************************************************
 * ElemTypeCodeElement
+*
+* +-------------------+-------------------------------------------+
+* | Element Type Code | Name                                      |
+* +===================+===========================================+
+* |        00h        | Unspecified                               |
+* +-------------------+-------------------------------------------+
+* |        01h        | Device Slot                               |
+* +-------------------+-------------------------------------------+
+* |        02h        | Power Supply                              |
+* +-------------------+-------------------------------------------+
+* |        03h        | Cooling                                   |
+* +-------------------+-------------------------------------------+
+* |        04h        | Temperature Sensor                        |
+* +-------------------+-------------------------------------------+
+* |        05h        | Door Lock                                 |
+* +-------------------+-------------------------------------------+
+* |        06h        | Audible Alarm                             |
+* +-------------------+-------------------------------------------+
+* |        07h        | Enclosure Services Controller Electronics |
+* +-------------------+-------------------------------------------+
+* |        08h        | SCC Controller Electronics                |
+* +-------------------+-------------------------------------------+
+* |        09h        | Nonvolatile Cache                         |
+* +-------------------+-------------------------------------------+
+* |        0Ah        | Invalid Operation Reason c                |
+* +-------------------+-------------------------------------------+
+* |        0Bh        | Uninterruptible Power Supply              |
+* +-------------------+-------------------------------------------+
+* |        0Ch        | Display                                   |
+* +-------------------+-------------------------------------------+
+* |        0Dh        | Key Pad Entry                             |
+* +-------------------+-------------------------------------------+
+* |        0Eh        | Enclosure                                 |
+* +-------------------+-------------------------------------------+
+* |        0Fh        | SCSI Port/Transceiver                     |
+* +-------------------+-------------------------------------------+
+* |        10h        | Language                                  |
+* +-------------------+-------------------------------------------+
+* |        11h        | Communication Port                        |
+* +-------------------+-------------------------------------------+
+* |        12h        | Voltage Sensor                            |
+* +-------------------+-------------------------------------------+
+* |        13h        | Current Sensor                            |
+* +-------------------+-------------------------------------------+
+* |        14h        | SCSI Target Port                          |
+* +-------------------+-------------------------------------------+
+* |        15h        | SCSI Initiator Port                       |
+* +-------------------+-------------------------------------------+
+* |        16h        | Simple Subenclosure                       |
+* +-------------------+-------------------------------------------+
+* |        17h        | Array Device Slot                         |
+* +-------------------+-------------------------------------------+
+* |        18h        | SAS Expander                              |
+* +-------------------+-------------------------------------------+
+* |        19h        | SAS Connector                             |
+* +-------------------+-------------------------------------------+
+* |     1Ah ~ 7Fh     | Reserved                                  |
+* +-------------------+-------------------------------------------+
+* |     80h ~ FFh     | Vendor specific                           |
+* +-------------------+-------------------------------------------+
+*
 ****************************************************************************/
 var (
-	defaultElemTypeCodes Codes
+	defaultElemTypeCodes Uint8Codes
 	defaultElemTypeCodesInited bool = false
 )
 
-func NewElemTypeCodes() Codes {
+func NewElemTypeCodes() Uint8Codes {
 	if defaultElemTypeCodesInited {
 		return defaultElemTypeCodes
 	}
 
-	codes := make(Codes)
+	codes := make(Uint8Codes)
 	codes[0x00] = "Unspecified"
 	codes[0x01] = "Device Slot"
 	codes[0x02] = "Power Supply"
@@ -56,8 +133,8 @@ func NewElemTypeCodes() Codes {
 	return defaultElemTypeCodes
 }
 
-func NewElemTypeCodeElement() *CodeElement {
-	elem := &CodeElement{codes: NewElemTypeCodes()}
+func NewElemTypeCodeElement() *Uint8CodeElement {
+	elem := &Uint8CodeElement{codes: NewElemTypeCodes()}
 	return elem
 }
 
@@ -66,35 +143,19 @@ func CreateElemTypeCodeElement() Element {
 }
 
 /****************************************************************************
- Table
-+----------------------------------------------------------------------------------------------------------+
-| Byte\Bit |     7     |     6     |     5     |     4     |     3     |     2     |     1     |     0     |
-+==========+===============================================================================================+
-|   0      |                                                                                               |
-+----------+-----------------------------------------------------------------------------------------------+
-|   1      |                                                                                               |
-+----------+-----------------------------------------------------------------------------------------------+
-|   2      |                                                                                               |
-+----------+-----------------------------------------------------------------------------------------------+
-|   3      |                                                                                               |
-+----------+-----------------------------------------------------------------------------------------------+
-
-****************************************************************************/
-
-/****************************************************************************
-Control element format
-+----------------------------------------------------------------------------------------------------------+
-| Byte\Bit |     7     |     6     |     5     |     4     |     3     |     2     |     1     |     0     |
-+==========+===============================================================================================+
-|    0     |                                   COMMON CONTROL                                              |
-|          |-----------------------------------------------------------------------------------------------|
-|          |  SELECT   |  PRDFAIL  |  DISABLE  |  RST SWAP |                   Reserved                    |
-+----------+-----------------------------------------------+-----------------------------------------------+
-|    1     |                           Element type specific control information                           |
-+----------+-----------                                                                        ------------+
-|    3     |                                                                                               |
-+----------+-----------------------------------------------------------------------------------------------+
-
+* Control element format
+* +----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+
+* | Byte\Bit |     7     |     6     |     5     |     4     |     3     |     2     |     1     |     0     |
+* +==========+===========+===========+===========+===========+===========+===========+===========+===========+
+* |    0     |                                   COMMON CONTROL                                              |
+* |          |-----------+-----------+-----------+-----------+-----------------------------------------------|
+* |          |  SELECT   |  PRDFAIL  |  DISABLE  |  RST SWAP |                   Reserved                    |
+* +----------+-----------+-----------+-----------+-----------+-----------------------------------------------+
+* |    1     |                           Element type specific control information                           |
+* +----------+                                                                                               |
+* |    3     |                                                                                               |
+* +----------+-----------------------------------------------------------------------------------------------+
+* 
 ****************************************************************************/
 type CommonControlElement struct {
 	Reserved_0_0 Uint8Field
@@ -140,31 +201,31 @@ func CreateCommonControlElement() Element {
 }
 
 /****************************************************************************
-Status element format
-+----------------------------------------------------------------------------------------------------------+
-| Byte\Bit |     7     |     6     |     5     |     4     |     3     |     2     |     1     |     0     |
-+==========+===============================================================================================+
-|    0     |                                    COMMON STATUS                                              |
-|          |-----------------------------------------------------------------------------------------------|
-|          |  Reserved |  PRDFAIL  |  DISABLE  |    SWAP   |            ELEMENT STATUS CODE                |
-+----------+-----------------------------------------------+-----------------------------------------------+
-|    1     |                           Element type specific status information                            |
-+----------+-----------                                                                        ------------+
-|    3     |                                                                                               |
-+----------+-----------------------------------------------------------------------------------------------+
-
+* Status element format
+* +----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+
+* | Byte\Bit |     7     |     6     |     5     |     4     |     3     |     2     |     1     |     0     |
+* +==========+===========+===========+===========+===========+===========+===========+===========+===========+
+* |    0     |                                    COMMON STATUS                                              |
+* |          |-----------+-----------+-----------+-----------+-----------------------------------------------|
+* |          |  Reserved |  PRDFAIL  |  DISABLE  |    SWAP   |            ELEMENT STATUS CODE                |
+* +----------+-----------+-----------+-----------+-----------+-----------------------------------------------+
+* |    1     |                           Element type specific status information                            |
+* +----------+                                                                                               |
+* |    3     |                                                                                               |
+* +----------+-----------------------------------------------------------------------------------------------+
+* 
 ****************************************************************************/
 var (
-	gElemStatusCodes Codes
+	gElemStatusCodes Uint8Codes
 	gElemStatusCodesInited bool = false
 )
 
-func NewElemStatusCodes() Codes {
+func NewElemStatusCodes() Uint8Codes {
 	if gElemStatusCodesInited {
 		return gElemStatusCodes
 	}
 
-	codes := make(Codes)
+	codes := make(Uint8Codes)
 	codes[0x00] = "Unsupported"
 	codes[0x01] = "OK"
 	codes[0x02] = "Critical"
@@ -182,8 +243,8 @@ func NewElemStatusCodes() Codes {
 	return gElemStatusCodes
 }
 
-func NewElemStatusCodeElement() *CodeElement {
-	elem := &CodeElement{codes: NewElemStatusCodes()}
+func NewElemStatusCodeElement() *Uint8CodeElement {
+	elem := &Uint8CodeElement{codes: NewElemStatusCodes()}
 	return elem
 }
 
@@ -233,3 +294,259 @@ func NewCommonStatusElement() *CommonStatusElement {
 func CreateCommonStatusElement() Element {
 	return NewCommonStatusElement()
 }
+
+
+/****************************************************************************
+* Threshold control element format
+* +----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+
+* | Byte\Bit |     7     |     6     |     5     |     4     |     3     |     2     |     1     |     0     |
+* +==========+===========+===========+===========+===========+===========+===========+===========+===========+
+* |   0      |                         REQUESTED HIGH CRITICAL THRESHOLD                                     |
+* +----------+-----------------------------------------------------------------------------------------------+
+* |   1      |                         REQUESTED HIGH WARNING THRESHOLD                                      |
+* +----------+-----------------------------------------------------------------------------------------------+
+* |   2      |                         REQUESTED LOW WARNING THRESHOLD                                       |
+* +----------+-----------------------------------------------------------------------------------------------+
+* |   3      |                         REQUESTED LOW CRITICAL THRESHOLD                                      |
+* +----------+-----------------------------------------------------------------------------------------------+
+* 
+****************************************************************************/
+
+type ThresholdControlElement struct {
+	RequestedHighCriticalThreshold Uint8Field
+	RequestedHighWarningThreshold Uint8Field
+	RequestedLowWarningThreshold Uint8Field
+	RequestedLowCriticalThreshold Uint8Field
+}
+
+func (e *ThresholdControlElement) Decode(data []byte) error {
+	if len(data) < 4 {
+		return fmt.Errorf("Expect 4 bytes data, got %d", len(data))
+	}
+	e.RequestedHighCriticalThreshold.SetUint8(data[0])
+	e.RequestedHighWarningThreshold.SetUint8(data[1])
+	e.RequestedLowWarningThreshold.SetUint8(data[2])
+	e.RequestedLowCriticalThreshold.SetUint8(data[3])
+	return nil
+}
+
+func (e *ThresholdControlElement) Encode() ([]byte, error) {
+	data := make([]byte, 4, 4)
+	data[0] = e.RequestedHighCriticalThreshold.Uint8()
+	data[1] = e.RequestedHighWarningThreshold.Uint8()
+	data[2] = e.RequestedLowWarningThreshold.Uint8()
+	data[3] = e.RequestedLowCriticalThreshold.Uint8()
+	return data, nil
+}
+
+func (e *ThresholdControlElement) Length() int32 {
+	return 4
+}
+
+func NewThresholdControlElement() *ThresholdControlElement {
+	ef := GetEF("ses")
+	elem := &ThresholdControlElement{
+		RequestedHighCriticalThreshold: ef.CreateElement("Uint8Element").(Uint8Field),
+		RequestedHighWarningThreshold: ef.CreateElement("Uint8Element").(Uint8Field),
+		RequestedLowWarningThreshold: ef.CreateElement("Uint8Element").(Uint8Field),
+		RequestedLowCriticalThreshold: ef.CreateElement("Uint8Element").(Uint8Field)}
+	return elem
+}
+
+func CreateThresholdControlElement() Element {
+	return NewThresholdControlElement()
+}
+
+/****************************************************************************
+*  Threshold status element format
+* +----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+
+* | Byte\Bit |     7     |     6     |     5     |     4     |     3     |     2     |     1     |     0     |
+* +==========+===========+===========+===========+===========+===========+===========+===========+===========+
+* |   0      |                         HIGH CRITICAL THRESHOLD                                               |
+* +----------+-----------------------------------------------------------------------------------------------+
+* |   1      |                         HIGH WARNING THRESHOLD                                                |
+* +----------+-----------------------------------------------------------------------------------------------+
+* |   2      |                         LOW WARNING THRESHOLD                                                 |
+* +----------+-----------------------------------------------------------------------------------------------+
+* |   3      |                         LOW CRITICAL THRESHOLD                                                |
+* +----------+-----------------------------------------------------------------------------------------------+
+* 
+****************************************************************************/
+
+type ThresholdStatusElement struct {
+	HighCriticalThreshold Uint8Field
+	HighWarningThreshold Uint8Field
+	LowWarningThreshold Uint8Field
+	LowCriticalThreshold Uint8Field
+}
+
+func (e *ThresholdStatusElement) Decode(data []byte) error {
+	if len(data) < 4 {
+		return fmt.Errorf("Expect 4 bytes data, got %d", len(data))
+	}
+	e.HighCriticalThreshold.SetUint8(data[0])
+	e.HighWarningThreshold.SetUint8(data[1])
+	e.LowWarningThreshold.SetUint8(data[2])
+	e.LowCriticalThreshold.SetUint8(data[3])
+	return nil
+}
+
+func (e *ThresholdStatusElement) Encode() ([]byte, error) {
+	data := make([]byte, 4, 4)
+	data[0] = e.HighCriticalThreshold.Uint8()
+	data[1] = e.HighWarningThreshold.Uint8()
+	data[2] = e.LowWarningThreshold.Uint8()
+	data[3] = e.LowCriticalThreshold.Uint8()
+	return data, nil
+}
+
+func (e *ThresholdStatusElement) Length() int32 {
+	return 4
+}
+
+func NewThresholdStatusElement() *ThresholdStatusElement {
+	ef := GetEF("ses")
+	elem := &ThresholdStatusElement{
+		HighCriticalThreshold: ef.CreateElement("Uint8Element").(Uint8Field),
+		HighWarningThreshold: ef.CreateElement("Uint8Element").(Uint8Field),
+		LowWarningThreshold: ef.CreateElement("Uint8Element").(Uint8Field),
+		LowCriticalThreshold: ef.CreateElement("Uint8Element").(Uint8Field)}
+	return elem
+}
+
+func CreateThresholdStatusElement() Element {
+	return NewThresholdStatusElement()
+}
+
+
+/****************************************************************************
+*  Unspecified control element
+* +----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+
+* | Byte\Bit |     7     |     6     |     5     |     4     |     3     |     2     |     1     |     0     |
+* +==========+===========+===========+===========+===========+===========+===========+===========+===========+
+* |   0      |                                    COMMON CONTROL                                             |
+* +----------+-----------------------------------------------------------------------------------------------+
+* |   1      |                                       Reserved                                                |
+* +----------+                                                                                               |
+* |   3      |                                                                                               |
+* +----------+-----------------------------------------------------------------------------------------------+
+* 
+****************************************************************************/
+type UnspecifiedControlElement struct {
+	CommonControl Element
+	Reserved_1_0 Uint8Field
+	Reserved_2_0 Uint8Field
+	Reserved_3_0 Uint8Field
+}
+
+func (e *UnspecifiedControlElement) Decode(data []byte) error {
+	if len(data) < 4 {
+		return fmt.Errorf("Expect 4 bytes data, got %d", len(data))
+	}
+	e.CommonControl.Decode(data)
+	e.Reserved_1_0.SetUint8(data[1])
+	e.Reserved_2_0.SetUint8(data[2])
+	e.Reserved_3_0.SetUint8(data[3])
+	return nil
+}
+
+func (e *UnspecifiedControlElement) Encode() ([]byte, error) {
+	data := make([]byte, 4, 4)
+	data0, err := e.CommonControl.Encode()
+	if err != nil {
+		return data, err
+	}
+	data[0] = data0[0]
+	data[1] = e.Reserved_1_0.Uint8()
+	data[2] = e.Reserved_2_0.Uint8()
+	data[3] = e.Reserved_3_0.Uint8()
+	return data, nil
+}
+
+func (e *UnspecifiedControlElement) Length() int32 {
+	return 4
+}
+
+func NewUnspecifiedControlElement() *UnspecifiedControlElement {
+	ef := GetEF("ses")
+	elem := &UnspecifiedControlElement{
+		CommonControl: ef.CreateElement("CommonControlElement").(Element),
+		Reserved_1_0: ef.CreateElement("Uint8Element").(Uint8Field),
+		Reserved_2_0: ef.CreateElement("Uint8Element").(Uint8Field),
+		Reserved_3_0: ef.CreateElement("Uint8Element").(Uint8Field)}
+	return elem
+}
+
+func CreateUnspecifiedControlElement() Element {
+	return NewUnspecifiedControlElement()
+}
+
+/****************************************************************************
+*  Unspecified status element
+* +----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+
+* | Byte\Bit |     7     |     6     |     5     |     4     |     3     |     2     |     1     |     0     |
+* +==========+===========+===========+===========+===========+===========+===========+===========+===========+
+* |   0      |                                    COMMON STATUS                                              |
+* +----------+-----------------------------------------------------------------------------------------------+
+* |   1      |                                       Reserved                                                |
+* +----------+                                                                                               |
+* |   3      |                                                                                               |
+* +----------+-----------------------------------------------------------------------------------------------+
+* 
+****************************************************************************/
+type UnspecifiedStatusElement struct {
+	CommonStatus Element
+	Reserved_1_0 Uint8Field
+	Reserved_2_0 Uint8Field
+	Reserved_3_0 Uint8Field
+}
+
+func (e *UnspecifiedStatusElement) Decode(data []byte) error {
+	if len(data) < 4 {
+		return fmt.Errorf("Expect 4 bytes data, got %d", len(data))
+	}
+	err := e.CommonStatus.Decode(data)
+	if err != nil {
+		return err
+	}
+	e.Reserved_1_0.SetUint8(data[1])
+	e.Reserved_2_0.SetUint8(data[2])
+	e.Reserved_3_0.SetUint8(data[3])
+	return nil
+}
+
+func (e *UnspecifiedStatusElement) Encode() ([]byte, error) {
+	data := make([]byte, 4, 4)
+	data0, err := e.CommonStatus.Encode()
+	if err != nil {
+		return data, err
+	}
+	data[0] = data0[0]
+	data[1] = e.Reserved_1_0.Uint8()
+	data[2] = e.Reserved_2_0.Uint8()
+	data[3] = e.Reserved_3_0.Uint8()
+	return data, nil
+}
+
+func (e *UnspecifiedStatusElement) Length() int32 {
+	return 4
+}
+
+func NewUnspecifiedStatusElement() *UnspecifiedStatusElement {
+	ef := GetEF("ses")
+	elem := &UnspecifiedStatusElement{
+		CommonStatus: ef.CreateElement("CommonStatusElement").(Element),
+		Reserved_1_0: ef.CreateElement("Uint8Element").(Uint8Field),
+		Reserved_2_0: ef.CreateElement("Uint8Element").(Uint8Field),
+		Reserved_3_0: ef.CreateElement("Uint8Element").(Uint8Field)}
+	return elem
+}
+
+func CreateUnspecifiedStatusElement() Element {
+	return NewUnspecifiedStatusElement()
+}
+
+
+
+
+

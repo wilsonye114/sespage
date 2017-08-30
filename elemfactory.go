@@ -53,7 +53,8 @@ func NewBasicElementFactory() ElementFactory {
 	f.Register("CommonControlElement", CreateCommonControlElement)
 	f.Register("ElemStatusCodeElement", CreateElemStatusCodeElement)
 	f.Register("CommonStatusElement", CreateCommonStatusElement)
-
+	f.Register("UnspecifiedControlElement", CreateUnspecifiedControlElement)
+	f.Register("UnspecifiedStatusElement", CreateUnspecifiedStatusElement)
 
 	return f
 }

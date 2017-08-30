@@ -6,7 +6,7 @@ import (
 	"math/rand"
 )
 
-func CommonTestField(bytes []byte, element Element) {
+func FieldCommonTest(bytes []byte, element Element) {
 	log.Printf("Test %T", element)
 	err := element.Decode(bytes)
 	if err != nil {
@@ -25,7 +25,7 @@ func CommonTestField(bytes []byte, element Element) {
 	}
 }
 
-func CommonTestIntField(element Element) {
+func IntFieldCommonTest(element Element) {
 	var value int64
 	var evalue int64
 
@@ -33,7 +33,7 @@ func CommonTestIntField(element Element) {
 	for i := 0; i < 8; i++ {
 		bytes[i] = byte(rand.Int31())
 	}
-	CommonTestField(bytes, element)
+	FieldCommonTest(bytes, element)
 
 	switch v := element.(type) {
 	case Int8Field:
@@ -93,21 +93,21 @@ func TestIntElements(t *testing.T) {
 	var int64elem Int64Element
 	var uint64elem Uint64Element
 
-	CommonTestIntField(&int8elem)
-	CommonTestIntField(&uint8elem)
-	CommonTestIntField(&int16elem)
-	CommonTestIntField(&uint16elem)
-	CommonTestIntField(&int32elem)
-	CommonTestIntField(&uint32elem)
-	CommonTestIntField(&int64elem)
-	CommonTestIntField(&uint64elem)
+	IntFieldCommonTest(&int8elem)
+	IntFieldCommonTest(&uint8elem)
+	IntFieldCommonTest(&int16elem)
+	IntFieldCommonTest(&uint16elem)
+	IntFieldCommonTest(&int32elem)
+	IntFieldCommonTest(&uint32elem)
+	IntFieldCommonTest(&int64elem)
+	IntFieldCommonTest(&uint64elem)
 }
 
 func TestBoolElement(t *testing.T) {
 	var boolelem BoolElement
 
 	bytes := []byte{0,1}
-	CommonTestField(bytes, &boolelem)
+	FieldCommonTest(bytes, &boolelem)
 	for _, v := range []bool{true, false} {
 		boolelem.SetBool(v)
 		ev := boolelem.Bool()
@@ -121,7 +121,7 @@ func TestBoolElement(t *testing.T) {
 func TestStringElement(t *testing.T) {
 	var strelem StringElement
 	bytes := []byte("hello world")
-	CommonTestField(bytes, &strelem)
+	FieldCommonTest(bytes, &strelem)
 	v := "hi yourself"
 	strelem.SetString(v)
 	s := strelem.String()
@@ -135,8 +135,8 @@ func TestHexStringElement(t *testing.T) {
 	var hexelem HexStringElement
 	bytes1 := []byte{0xff}
 	bytes2 := []byte{0xff, 0xee, 0x11, 0x04, 0x05, 0x06, 0x07}
-	CommonTestField(bytes1, &hexelem)
-	CommonTestField(bytes2, &hexelem)
+	FieldCommonTest(bytes1, &hexelem)
+	FieldCommonTest(bytes2, &hexelem)
 	v := "ffee1104050607"
 	ev := hexelem.String()
 	log.Printf("Get %s\n", ev)
@@ -156,8 +156,8 @@ func TestBytesElement(t *testing.T) {
 	var byteselem BytesElement
 	bytes1 := []byte{0x05}
 	bytes2 := []byte{0xff, 0xcc, 0x14, 0x55, 0x98}
-	CommonTestField(bytes1, &byteselem)
-	CommonTestField(bytes2, &byteselem)
+	FieldCommonTest(bytes1, &byteselem)
+	FieldCommonTest(bytes2, &byteselem)
 	bytes3 := []byte{0xee, 0xca, 0x14, 0x67, 0x23, 0x78}
 	byteselem.SetBytes(bytes3)
 	bytes4 := byteselem.Bytes()
@@ -170,4 +170,25 @@ func TestBytesElement(t *testing.T) {
 			panic("Get/Set Error")
 		}
 	}
+}
+
+func TestUint8CodeElement(t *testing.T) {
+
+	codes := make(Uint8Codes)
+	codes[0x00] = "Unsupported"
+	codes[0x01] = "OK"
+	codes[0x02] = "Critical"
+	codes[0x03] = "Noncritical"
+	codes[0x04] = "Unrecoverable"
+	codes[0x05] = "Not Installed"
+	codes[0x06] = "Unknown"
+	codes[0x07] = "Not Available"
+	codes[0x08] = "No Access Allowed"
+	for i := uint8(0x09); (i >= 0x09) && (i <= 0x0f); i++ {
+		codes[i] = "Reserved"
+	}
+	data := []byte{1,2,3,4}
+	elem := Uint8CodeElement{codes: codes}
+	FieldCommonTest(data[3:], &elem)
+	log.Printf("%d: %s\n", elem.Code, elem.Name)
 }
