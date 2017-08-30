@@ -144,3 +144,9 @@ func TestUnspecifiedStatusElement(t *testing.T) {
 	data := []byte{0xff, 0x20, 0x51, 0xff}
 	ElementCommonTest(data, elem)
 }
+
+func TestDeviceSlotControlElement(t *testing.T) {
+	elem := CreateDeviceSlotControlElement()
+	data := []byte{0xff, 0xff, 0xff, 0xff}
+	ElementCommonTest(data, elem)
+}

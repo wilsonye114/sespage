@@ -546,7 +546,123 @@ func CreateUnspecifiedStatusElement() Element {
 	return NewUnspecifiedStatusElement()
 }
 
+/****************************************************************************
+*  Device Slot control element
+* +----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+
+* | Byte\Bit |     7     |     6     |     5     |     4     |     3     |     2     |     1     |     0     |
+* +==========+===========+===========+===========+===========+===========+===========+===========+===========+
+* |   0      |                                   COMMON CONTROL                                              |
+* +----------+-----------------------------------------------------------------------------------------------+
+* |   1      |                                    Reserved                                                   |
+* +----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+
+* |   2      | RQST      | DO NOT    | Reserved  | RQST      | RQST      | RQST      | RQST      | Reserved  |
+* |          | ACTIVE    | REMOVE    |           | MISSING   | INSERT    | REMOVE    | IDENT     |           |
+* +----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+
+* |   3      | Reserved              | RQST      | DEVICE    | ENABLE    | ENABLE    | Reserved              |
+* |          |                       | FAULT     | OFF       | BYP A     | BYP B     |                       |
+* +----------+-----------------------+-----------+-----------+-----------+-----------+-----------------------+
+* 
+****************************************************************************/
+type DeviceSlotControlElement struct {
+	CommonStatus Element
+	Reserved_1_0 Uint8Field
+	Reserved_2_0 Uint8Field
+	RqstIdent Uint8Field
+	RqstRemove Uint8Field
+	RqstInsert Uint8Field
+	RqstMissing Uint8Field
+	Reserved_2_5 Uint8Field
+	DoNotRemove Uint8Field
+	RqstActive Uint8Field
+	Reserved_3_0 Uint8Field
+	EnableBypB Uint8Field
+	EnableBypA Uint8Field
+	DeviceOff Uint8Field
+	RqstFault Uint8Field
+	Reserved_3_6 Uint8Field
+}
 
+func (e *DeviceSlotControlElement) Decode(data []byte) error {
+	if len(data) < 4 {
+		return fmt.Errorf("Expect 4 bytes data, got %d", len(data))
+	}
+	err := e.CommonStatus.Decode(data)
+	if err != nil {
+		return err
+	}
+	e.Reserved_1_0.SetUint8(data[1])
+	e.Reserved_2_0.SetUint8(data[2]&0x01)
+	e.RqstIdent.SetUint8((data[2]>>1)&0x01)
+	e.RqstRemove.SetUint8((data[2]>>2)&0x01)
+	e.RqstInsert.SetUint8((data[2]>>3)&0x01)
+	e.RqstMissing.SetUint8((data[2]>>4)&0x01)
+	e.Reserved_2_5.SetUint8((data[2]>>5)&0x01)
+	e.DoNotRemove.SetUint8((data[2]>>6)&0x01)
+	e.RqstActive.SetUint8((data[2]>>7)&0x01)
+	e.Reserved_3_0.SetUint8(data[3]&0x3)
+	e.EnableBypB.SetUint8((data[3]>>2)&0x1)
+	e.EnableBypA.SetUint8((data[3]>>3)&0x1)
+	e.DeviceOff.SetUint8((data[3]>>4)&0x1)
+	e.RqstFault.SetUint8((data[3]>>5)&0x1)
+	e.Reserved_3_6.SetUint8((data[3]>>6)&0x3)
 
+	return nil
+}
+
+func (e *DeviceSlotControlElement) Encode() ([]byte, error) {
+	data := make([]byte, 4, 4)
+	data0, err := e.CommonStatus.Encode()
+	if err != nil {
+		return data, err
+	}
+	data[0] = data0[0]
+	data[1] = e.Reserved_1_0.Uint8()
+	data[2] = (e.RqstActive.Uint8() << 7 |
+			   e.DoNotRemove.Uint8() << 6 |
+			   e.Reserved_2_5.Uint8() << 5 |
+			   e.RqstMissing.Uint8() << 4 |
+			   e.RqstInsert.Uint8() << 3 |
+			   e.RqstRemove.Uint8() << 2 |
+			   e.RqstIdent.Uint8() << 1 |
+			   e.Reserved_2_0.Uint8())
+	data[3] = (e.Reserved_3_6.Uint8() << 6 |
+			   e.RqstFault.Uint8() << 5 |
+			   e.DeviceOff.Uint8() << 4 |
+			   e.EnableBypA.Uint8() << 3 |
+			   e.EnableBypB.Uint8() << 2 |
+			   e.Reserved_3_0.Uint8())
+	return data, nil
+}
+
+func (e *DeviceSlotControlElement) Length() int32 {
+	return 4
+}
+
+func NewDeviceSlotControlElement() *DeviceSlotControlElement {
+	ef := GetEF("ses")
+	elem := &DeviceSlotControlElement{
+		CommonStatus: ef.CreateElement("CommonStatusElement").(Element),
+		Reserved_1_0: ef.CreateElement("Uint8Element").(Uint8Field),
+		Reserved_2_0: ef.CreateElement("Uint8Element").(Uint8Field),
+		RqstIdent: ef.CreateElement("Uint8Element").(Uint8Field),
+		RqstRemove: ef.CreateElement("Uint8Element").(Uint8Field),
+		RqstInsert: ef.CreateElement("Uint8Element").(Uint8Field),
+		RqstMissing: ef.CreateElement("Uint8Element").(Uint8Field),
+		Reserved_2_5: ef.CreateElement("Uint8Element").(Uint8Field),
+		DoNotRemove: ef.CreateElement("Uint8Element").(Uint8Field),
+		RqstActive: ef.CreateElement("Uint8Element").(Uint8Field),
+		Reserved_3_0: ef.CreateElement("Uint8Element").(Uint8Field),
+		EnableBypB: ef.CreateElement("Uint8Element").(Uint8Field),
+		EnableBypA: ef.CreateElement("Uint8Element").(Uint8Field),
+		DeviceOff: ef.CreateElement("Uint8Element").(Uint8Field),
+		RqstFault: ef.CreateElement("Uint8Element").(Uint8Field),
+		Reserved_3_6: ef.CreateElement("Uint8Element").(Uint8Field)}
+
+	return elem
+}
+
+func CreateDeviceSlotControlElement() Element {
+	return NewDeviceSlotControlElement()
+}
 
 

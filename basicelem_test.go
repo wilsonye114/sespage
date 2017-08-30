@@ -4,6 +4,7 @@ import (
 	"testing"
 	"log"
 	"math/rand"
+	// "time"
 )
 
 func FieldCommonTest(bytes []byte, element Element) {
@@ -83,6 +84,108 @@ func IntFieldCommonTest(element Element) {
 	}
 }
 
+
+func BitFieldCommonTest(element Element) {
+	var value uint8
+	var evalue uint8
+
+	data := make([]byte, 0x80, 0x80)
+	for i := 0; i <= 0x7f; i++ {
+		data[i] = byte(i)
+	}
+
+	switch v := element.(type) {
+	case Uint1Field:
+		for i := 0; i <= 0x1; i++ {
+			FieldCommonTest(data[i:], element)
+			tmpvalue := uint8(data[i])
+			v.SetUint1(tmpvalue)
+			evalue = v.Uint1()
+			value = tmpvalue
+			log.Printf("Set %d, Get %d\n", value, evalue)
+			if value != evalue {
+				panic("Get/Set error")
+			}
+		}
+	case Uint2Field:
+		for i := 0; i <= 0x3; i++ {
+			FieldCommonTest(data[i:], element)
+			tmpvalue := uint8(data[i])
+			v.SetUint2(tmpvalue)
+			evalue = v.Uint2()
+			value = tmpvalue
+			log.Printf("Set %d, Get %d\n", value, evalue)
+			if value != evalue {
+				panic("Get/Set error")
+			}
+		}
+	case Uint3Field:
+		for i := 0; i <= 0x7; i++ {
+			FieldCommonTest(data[i:], element)
+			tmpvalue := uint8(data[i])
+			v.SetUint3(tmpvalue)
+			evalue = v.Uint3()
+			value = tmpvalue
+			log.Printf("Set %d, Get %d\n", value, evalue)
+			if value != evalue {
+				panic("Get/Set error")
+			}
+		}
+	case Uint4Field:
+		for i := 0; i <= 0xf; i++ {
+			FieldCommonTest(data[i:], element)
+			tmpvalue := uint8(data[i])
+			v.SetUint4(tmpvalue)
+			evalue = v.Uint4()
+			value = tmpvalue
+			log.Printf("Set %d, Get %d\n", value, evalue)
+			if value != evalue {
+				panic("Get/Set error")
+			}
+		}
+	case Uint5Field:
+		for i := 0; i <= 0x1f; i++ {
+			FieldCommonTest(data[i:], element)
+			tmpvalue := uint8(data[i])
+			v.SetUint5(tmpvalue)
+			evalue = v.Uint5()
+			value = tmpvalue
+			log.Printf("Set %d, Get %d\n", value, evalue)
+			if value != evalue {
+				panic("Get/Set error")
+			}
+		}
+	case Uint6Field:
+		for i := 0; i <= 0x3f; i++ {
+			FieldCommonTest(data[i:], element)
+			tmpvalue := uint8(data[i])
+			v.SetUint6(tmpvalue)
+			evalue = v.Uint6()
+			value = tmpvalue
+			log.Printf("Set %d, Get %d\n", value, evalue)
+			if value != evalue {
+				panic("Get/Set error")
+			}
+		}
+	case Uint7Field:
+		for i := 0; i <= 0x7f; i++ {
+			FieldCommonTest(data[i:], element)
+			tmpvalue := uint8(data[i])
+			v.SetUint7(tmpvalue)
+			evalue = v.Uint7()
+			value = tmpvalue
+			log.Printf("Set %d, Get %d\n", value, evalue)
+			if value != evalue {
+				panic("Get/Set error")
+			}
+		}
+	}
+	// log.Printf("Set %d, Get %d\n", value, evalue)
+	// if value != evalue {
+	// 	panic("Get/Set error")
+	// }
+}
+
 func TestIntElements(t *testing.T) {
 	var int8elem Int8Element
 	var uint8elem Uint8Element
@@ -101,6 +204,26 @@ func TestIntElements(t *testing.T) {
 	IntFieldCommonTest(&uint32elem)
 	IntFieldCommonTest(&int64elem)
 	IntFieldCommonTest(&uint64elem)
+}
+
+
+func TestBitElements(t *testing.T) {
+	var uint1elem Uint1Element
+	var uint2elem Uint2Element
+	var uint3elem Uint3Element
+	var uint4elem Uint4Element
+	var uint5elem Uint5Element
+	var uint6elem Uint6Element
+	var uint7elem Uint7Element
+
+	BitFieldCommonTest(&uint1elem)
+	BitFieldCommonTest(&uint2elem)
+	BitFieldCommonTest(&uint3elem)
+	BitFieldCommonTest(&uint4elem)
+	BitFieldCommonTest(&uint5elem)
+	BitFieldCommonTest(&uint6elem)
+	BitFieldCommonTest(&uint7elem)
+
 }
 
 func TestBoolElement(t *testing.T) {

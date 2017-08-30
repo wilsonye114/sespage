@@ -28,6 +28,48 @@ type Element interface {
 // 	Length() int32
 // }
 
+type Uint1Field interface {
+	Element
+	Uint1() uint8
+	SetUint1(uint8)
+}
+
+type Uint2Field interface {
+	Element
+	Uint2() uint8
+	SetUint2(uint8)
+}
+
+type Uint3Field interface {
+	Element
+	Uint3() uint8
+	SetUint3(uint8)
+}
+
+type Uint4Field interface {
+	Element
+	Uint4() uint8
+	SetUint4(uint8)
+}
+
+type Uint5Field interface {
+	Element
+	Uint5() uint8
+	SetUint5(uint8)
+}
+
+type Uint6Field interface {
+	Element
+	Uint6() uint8
+	SetUint6(uint8)
+}
+
+type Uint7Field interface {
+	Element
+	Uint7() uint8
+	SetUint7(uint8)
+}
+
 type BytesField interface {
 	Element
 	Bytes() []byte
@@ -103,6 +145,301 @@ type HexStringField interface {
 /***************************************************************************
 * Basic Elements
 ***************************************************************************/
+
+type Uint1Element uint8
+
+func (e *Uint1Element) Decode(data []byte) error {
+	if len(data) < 1 {
+		return fmt.Errorf("Expect 1 bytes data, got %d", len(data))
+	}
+
+	*e = Uint1Element(data[0]&0x01)
+	return nil
+}
+
+func (e *Uint1Element) Encode() ([]byte, error) {
+	data := make([]byte, 1, 1)
+	data[0] = byte(*e)
+	return data, nil
+}
+
+func (e *Uint1Element) Length() int32 {
+	return 1
+}
+
+func (e *Uint1Element) Uint1() uint8 {
+	return uint8(*e)
+}
+
+func (e *Uint1Element) SetUint1(v uint8) {
+	if v > 0x01 {
+		panic("value isn't 1 bit")
+	}
+	*e = Uint1Element(v)
+}
+
+func NewUint1Element() *Uint1Element {
+	var elem Uint1Element
+	return &elem
+}
+
+func CreateUint1Element() Element {
+	var elem Uint1Element
+	return &elem
+}
+
+type Uint2Element uint8
+
+func (e *Uint2Element) Decode(data []byte) error {
+	if len(data) < 1 {
+		return fmt.Errorf("Expect 1 bytes data, got %d", len(data))
+	}
+
+	*e = Uint2Element(data[0]&0x03)
+	return nil
+}
+
+func (e *Uint2Element) Encode() ([]byte, error) {
+	data := make([]byte, 1, 1)
+	data[0] = byte(*e)
+	return data, nil
+}
+
+func (e *Uint2Element) Length() int32 {
+	return 1
+}
+
+func (e *Uint2Element) Uint2() uint8 {
+	return uint8(*e)
+}
+
+func (e *Uint2Element) SetUint2(v uint8) {
+	if v > 0x03 {
+		panic("value isn't 2 bit")
+	}
+	*e = Uint2Element(v)
+}
+
+func NewUint2Element() *Uint2Element {
+	var elem Uint2Element
+	return &elem
+}
+
+func CreateUint2Element() Element {
+	var elem Uint2Element
+	return &elem
+}
+
+type Uint3Element uint8
+
+func (e *Uint3Element) Decode(data []byte) error {
+	if len(data) < 1 {
+		return fmt.Errorf("Expect 1 bytes data, got %d", len(data))
+	}
+
+	*e = Uint3Element(data[0]&0x07)
+	return nil
+}
+
+func (e *Uint3Element) Encode() ([]byte, error) {
+	data := make([]byte, 1, 1)
+	data[0] = byte(*e)
+	return data, nil
+}
+
+func (e *Uint3Element) Length() int32 {
+	return 1
+}
+
+func (e *Uint3Element) Uint3() uint8 {
+	return uint8(*e)
+}
+
+func (e *Uint3Element) SetUint3(v uint8) {
+	if v > 0x07 {
+		panic("value isn't 3 bit")
+	}
+	*e = Uint3Element(v)
+}
+
+func NewUint3Element() *Uint3Element {
+	var elem Uint3Element
+	return &elem
+}
+
+func CreateUint3Element() Element {
+	var elem Uint3Element
+	return &elem
+}
+
+type Uint4Element uint8
+
+func (e *Uint4Element) Decode(data []byte) error {
+	if len(data) < 1 {
+		return fmt.Errorf("Expect 1 bytes data, got %d", len(data))
+	}
+
+	*e = Uint4Element(data[0]&0x0f)
+	return nil
+}
+
+func (e *Uint4Element) Encode() ([]byte, error) {
+	data := make([]byte, 1, 1)
+	data[0] = byte(*e)
+	return data, nil
+}
+
+func (e *Uint4Element) Length() int32 {
+	return 1
+}
+
+func (e *Uint4Element) Uint4() uint8 {
+	return uint8(*e)
+}
+
+func (e *Uint4Element) SetUint4(v uint8) {
+	if v > 0x0f {
+		panic("value isn't 4 bit")
+	}
+	*e = Uint4Element(v)
+}
+
+func NewUint4Element() *Uint4Element {
+	var elem Uint4Element
+	return &elem
+}
+
+func CreateUint4Element() Element {
+	var elem Uint4Element
+	return &elem
+}
+
+type Uint5Element uint8
+
+func (e *Uint5Element) Decode(data []byte) error {
+	if len(data) < 1 {
+		return fmt.Errorf("Expect 1 bytes data, got %d", len(data))
+	}
+
+	*e = Uint5Element(data[0]&0x1f)
+	return nil
+}
+
+func (e *Uint5Element) Encode() ([]byte, error) {
+	data := make([]byte, 1, 1)
+	data[0] = byte(*e)
+	return data, nil
+}
+
+func (e *Uint5Element) Length() int32 {
+	return 1
+}
+
+func (e *Uint5Element) Uint5() uint8 {
+	return uint8(*e)
+}
+
+func (e *Uint5Element) SetUint5(v uint8) {
+	if v > 0x1f {
+		panic("value isn't 5 bit")
+	}
+	*e = Uint5Element(v)
+}
+
+func NewUint5Element() *Uint5Element {
+	var elem Uint5Element
+	return &elem
+}
+
+func CreateUint5Element() Element {
+	var elem Uint5Element
+	return &elem
+}
+
+type Uint6Element uint8
+
+func (e *Uint6Element) Decode(data []byte) error {
+	if len(data) < 1 {
+		return fmt.Errorf("Expect 1 bytes data, got %d", len(data))
+	}
+
+	*e = Uint6Element(data[0]&0x3f)
+	return nil
+}
+
+func (e *Uint6Element) Encode() ([]byte, error) {
+	data := make([]byte, 1, 1)
+	data[0] = byte(*e)
+	return data, nil
+}
+
+func (e *Uint6Element) Length() int32 {
+	return 1
+}
+
+func (e *Uint6Element) Uint6() uint8 {
+	return uint8(*e)
+}
+
+func (e *Uint6Element) SetUint6(v uint8) {
+	if v > 0x3f {
+		panic("value isn't 6 bit")
+	}
+	*e = Uint6Element(v)
+}
+
+func NewUint6Element() *Uint6Element {
+	var elem Uint6Element
+	return &elem
+}
+
+func CreateUint6Element() Element {
+	var elem Uint6Element
+	return &elem
+}
+
+type Uint7Element uint8
+
+func (e *Uint7Element) Decode(data []byte) error {
+	if len(data) < 1 {
+		return fmt.Errorf("Expect 1 bytes data, got %d", len(data))
+	}
+
+	*e = Uint7Element(data[0]&0x7f)
+	return nil
+}
+
+func (e *Uint7Element) Encode() ([]byte, error) {
+	data := make([]byte, 1, 1)
+	data[0] = byte(*e)
+	return data, nil
+}
+
+func (e *Uint7Element) Length() int32 {
+	return 1
+}
+
+func (e *Uint7Element) Uint7() uint8 {
+	return uint8(*e)
+}
+
+func (e *Uint7Element) SetUint7(v uint8) {
+	if v > 0x7f {
+		panic("value isn't 7 bit")
+	}
+	*e = Uint7Element(v)
+}
+
+func NewUint7Element() *Uint7Element {
+	var elem Uint7Element
+	return &elem
+}
+
+func CreateUint7Element() Element {
+	var elem Uint7Element
+	return &elem
+}
+
 type BytesElement []byte
 
 func (e *BytesElement) Decode(data []byte) error {
