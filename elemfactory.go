@@ -92,6 +92,12 @@ func NewSesElementFactory() ElementFactory {
 	f.Register("UnspecifiedControlElement", CreateUnspecifiedControlElement)
 	f.Register("UnspecifiedStatusElement", CreateUnspecifiedStatusElement)
 
+	// SES OEM Elements
+	f.Register("TypeCodeElement", CreateTypeCodeElement)
+	f.Register("MidplaneVpdDataElement", CreateMidplaneVpdDataElement)
+	f.Register("VpdStatusDescriptorElement", CreateVpdStatusDescriptorElement)
+	f.Register("CanisterVpdDataElement", CreateCanisterVpdDataElement)
+
 	return f
 }
 

@@ -158,41 +158,41 @@ func CreateElemTypeCodeElement() Element {
 * 
 ****************************************************************************/
 type CommonControlElement struct {
-	Reserved_0_0 Uint8Field
-	RstSwap Uint8Field
-	Disable Uint8Field
-	Prdfail Uint8Field
-	Select Uint8Field
+	Reserved_0_0 Uint4Field
+	RstSwap Uint1Field
+	Disable Uint1Field
+	Prdfail Uint1Field
+	Select Uint1Field
 }
 
 func (e *CommonControlElement) Decode(data []byte) error {
 	b := data[0]
-	e.Reserved_0_0.SetUint8(b & 0x0f)
-	e.RstSwap.SetUint8((b >> 4) & 0x01)
-	e.Disable.SetUint8((b >> 5) & 0x01)
-	e.Prdfail.SetUint8((b >> 6) & 0x01)
-	e.Select.SetUint8((b >> 7) & 0x01)
+	e.Reserved_0_0.SetUint4(b & 0x0f)
+	e.RstSwap.SetUint1((b >> 4) & 0x01)
+	e.Disable.SetUint1((b >> 5) & 0x01)
+	e.Prdfail.SetUint1((b >> 6) & 0x01)
+	e.Select.SetUint1((b >> 7) & 0x01)
 	return nil
 }
 
 func (e *CommonControlElement) Encode() ([]byte, error) {
 	data := make([]byte, 1)
-	data[0] = (e.Select.Uint8() << 7) | (e.Prdfail.Uint8() << 6) | (e.Disable.Uint8() << 5) | (e.RstSwap.Uint8() << 4) | e.Reserved_0_0.Uint8()
+	data[0] = (e.Select.Uint1() << 7) | (e.Prdfail.Uint1() << 6) | (e.Disable.Uint1() << 5) | (e.RstSwap.Uint1() << 4) | e.Reserved_0_0.Uint4()
 	return data, nil
 }
 
-func (e *CommonControlElement) Length() int32 {
-	return 1
+func (e *CommonControlElement) Length() ElementLength {
+	return ElementLength(8)
 }
 
 func NewCommonControlElement() *CommonControlElement {
 	ef := GetEF("ses")
 	elem := &CommonControlElement{
-		Reserved_0_0: ef.CreateElement("Uint8Element").(Uint8Field),
-		RstSwap: ef.CreateElement("Uint8Element").(Uint8Field),
-		Disable: ef.CreateElement("Uint8Element").(Uint8Field),
-		Prdfail: ef.CreateElement("Uint8Element").(Uint8Field),
-		Select: ef.CreateElement("Uint8Element").(Uint8Field)}
+		Reserved_0_0: ef.CreateElement("Uint4Element").(Uint4Field),
+		RstSwap: ef.CreateElement("Uint1Element").(Uint1Field),
+		Disable: ef.CreateElement("Uint1Element").(Uint1Field),
+		Prdfail: ef.CreateElement("Uint1Element").(Uint1Field),
+		Select: ef.CreateElement("Uint1Element").(Uint1Field)}
 	return elem
 }
 
@@ -276,8 +276,8 @@ func (e *CommonStatusElement) Encode() ([]byte, error) {
 	return data, nil
 }
 
-func (e *CommonStatusElement) Length() int32 {
-	return 1
+func (e *CommonStatusElement) Length() ElementLength {
+	return ElementLength(8)
 }
 
 func NewCommonStatusElement() *CommonStatusElement {
@@ -339,8 +339,8 @@ func (e *ThresholdControlElement) Encode() ([]byte, error) {
 	return data, nil
 }
 
-func (e *ThresholdControlElement) Length() int32 {
-	return 4
+func (e *ThresholdControlElement) Length() ElementLength {
+	return ElementLength(32)
 }
 
 func NewThresholdControlElement() *ThresholdControlElement {
@@ -400,8 +400,8 @@ func (e *ThresholdStatusElement) Encode() ([]byte, error) {
 	return data, nil
 }
 
-func (e *ThresholdStatusElement) Length() int32 {
-	return 4
+func (e *ThresholdStatusElement) Length() ElementLength {
+	return ElementLength(32)
 }
 
 func NewThresholdStatusElement() *ThresholdStatusElement {
@@ -463,8 +463,8 @@ func (e *UnspecifiedControlElement) Encode() ([]byte, error) {
 	return data, nil
 }
 
-func (e *UnspecifiedControlElement) Length() int32 {
-	return 4
+func (e *UnspecifiedControlElement) Length() ElementLength {
+	return ElementLength(32)
 }
 
 func NewUnspecifiedControlElement() *UnspecifiedControlElement {
@@ -528,8 +528,8 @@ func (e *UnspecifiedStatusElement) Encode() ([]byte, error) {
 	return data, nil
 }
 
-func (e *UnspecifiedStatusElement) Length() int32 {
-	return 4
+func (e *UnspecifiedStatusElement) Length() ElementLength {
+	return ElementLength(32)
 }
 
 func NewUnspecifiedStatusElement() *UnspecifiedStatusElement {
@@ -634,8 +634,8 @@ func (e *DeviceSlotControlElement) Encode() ([]byte, error) {
 	return data, nil
 }
 
-func (e *DeviceSlotControlElement) Length() int32 {
-	return 4
+func (e *DeviceSlotControlElement) Length() ElementLength {
+	return ElementLength(32)
 }
 
 func NewDeviceSlotControlElement() *DeviceSlotControlElement {

@@ -36,30 +36,30 @@ func TestCommonControlElement(t *testing.T) {
 	elem := CreateCommonControlElement()
 	data := []byte{0x1f}
 	ElementCommonTest(data, elem)
-	if elem.(*CommonControlElement).RstSwap.Uint8() != 1 {
+	if elem.(*CommonControlElement).RstSwap.Uint1() != 1 {
 		panic("Encode/Decode Error")
 	}
 	data = []byte{0x2f}
 	ElementCommonTest(data, elem)
-	if elem.(*CommonControlElement).Disable.Uint8() != 1 {
+	if elem.(*CommonControlElement).Disable.Uint1() != 1 {
 		panic("Encode/Decode Error")
 	}
 	data = []byte{0x4f}
 	ElementCommonTest(data, elem)
-	if elem.(*CommonControlElement).Prdfail.Uint8() != 1 {
+	if elem.(*CommonControlElement).Prdfail.Uint1() != 1 {
 		panic("Encode/Decode Error")
 	}
 	data = []byte{0x8f}
 	ElementCommonTest(data, elem)
-	if elem.(*CommonControlElement).Select.Uint8() != 1 {
+	if elem.(*CommonControlElement).Select.Uint1() != 1 {
 		panic("Encode/Decode Error")
 	}
 	data = []byte{0xff}
 	ElementCommonTest(data, elem)
-	if elem.(*CommonControlElement).RstSwap.Uint8() != 1 ||
-		elem.(*CommonControlElement).Disable.Uint8() != 1 ||
-		elem.(*CommonControlElement).Prdfail.Uint8() != 1 ||
-		elem.(*CommonControlElement).Select.Uint8() != 1 {
+	if elem.(*CommonControlElement).RstSwap.Uint1() != 1 ||
+		elem.(*CommonControlElement).Disable.Uint1() != 1 ||
+		elem.(*CommonControlElement).Prdfail.Uint1() != 1 ||
+		elem.(*CommonControlElement).Select.Uint1() != 1 {
 		panic("Encode/Decode Error")
 	}
 }

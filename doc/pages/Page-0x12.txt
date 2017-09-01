@@ -1,3 +1,40 @@
-  CELESTIC  R0934-X0001-01    0425
-Cannot decode response from diagnostic page: <unknown>
- 00     12 00 00 00                                         ....
+# Python Client
+    root@root123-PowerEdge-R820:~/wilson# python
+    Python 2.7.12+ (default, Sep 17 2016, 12:08:02) 
+    [GCC 6.2.0 20160914] on linux2
+    Type "help", "copyright", "credits" or "license" for more information.
+    >>> import requests
+    >>> import json
+    >>> 
+    >>> r = requests.get("http://10.204.30.219:8080/v1/page12/midplane")
+    >>> print(r.text)
+    {
+      "PageCode": 18,
+      "Reserved_1_0": 0,
+      "PageLength": 123,
+      "CompletionCode": 0,
+      "VpdStatusDescriptor": {
+        "VpdType": {
+          "Code": 14,
+          "Name": "Midplane"
+        },
+        "VpdId": 0,
+        "VpdData": {
+          "BoardProductName": "Eros           \u0000\u0000\u0000",
+          "BoardPartNumber": "R0934-G0004-03      ",
+          "BoardSerialNumber": "FFFFFHHHHHHYYWWSSSS ",
+          "BoardHardwareECLevel": "       \u0000",
+          "ProductName": "Eros              ",
+          "PorductPartNumber": "R0934-X0001-01  ",
+          "ProductSerialNumber": "0987654321098765",
+          "ProductVersion": "0001"
+        }
+      }
+    }
+    >>> rdict = json.loads(r.text)
+    >>> rdict["VpdStatusDescriptor"]["VpdId"]
+    0
+    >>> rdict["VpdStatusDescriptor"]["VpdData"]["BoardPartNumber"]
+    u'R0934-G0004-03      '
+    >>> 
+    

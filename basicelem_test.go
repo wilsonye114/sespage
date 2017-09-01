@@ -7,6 +7,11 @@ import (
 	// "time"
 )
 
+func TestElementLength(t *testing.T) {
+	l := ElementLength(39)
+	log.Printf("bits: %d, byte: %d, RemainderBit: %d, IsAligned: %v\n", l.Bit(), l.Byte(), l.RemainderBit(), l.IsAligned())
+}
+
 func FieldCommonTest(bytes []byte, element Element) {
 	log.Printf("Test %T", element)
 	err := element.Decode(bytes)
@@ -17,10 +22,14 @@ func FieldCommonTest(bytes []byte, element Element) {
 	if err != nil {
 		panic(err)
 	}
-	length := int(element.Length())
-	log.Printf("Decode %v, Encode %v, length: %d\n", bytes, dbytes, length)
-	for i := 0; i < length; i++ {
+	length := element.Length().Byte()
+	if element.Length().IsAligned() == false {
+		length++
+	}
+	log.Printf("Decode %v, Encode %v, Check Byte: %d, length: %dB.%db\n", bytes, dbytes, length, element.Length().Byte(), element.Length().RemainderBit())
+	for i := uint64(0); i < length; i++ {
 		if dbytes[i] != bytes[i] {
+			log.Printf("byte[%d] : %d, %d\n", i, dbytes[i], bytes[i])
 			panic("Encode/Decode error")
 		}
 	}
@@ -83,7 +92,6 @@ func IntFieldCommonTest(element Element) {
 		panic("Get/Set error")
 	}
 }
-
 
 func BitFieldCommonTest(element Element) {
 	var value uint8
@@ -180,10 +188,6 @@ func BitFieldCommonTest(element Element) {
 			}
 		}
 	}
-	// log.Printf("Set %d, Get %d\n", value, evalue)
-	// if value != evalue {
-	// 	panic("Get/Set error")
-	// }
 }
 
 func TestIntElements(t *testing.T) {
@@ -295,6 +299,40 @@ func TestBytesElement(t *testing.T) {
 	}
 }
 
+func Uint8CodeElementCommonTest(element *Uint8CodeElement) {
+	data := make([]byte, 0x100)
+	for i := 0; i <= 0xff; i++ {
+		data[i] = byte(i)
+	}
+	for i := 0; i <= 0xff; i++ {
+		FieldCommonTest(data[i:], element)
+		log.Printf("0x%x %s\n", element.Code, element.Name)
+	}
+	IntFieldCommonTest(element)
+}
+
+func TestUint4CodeElement(t *testing.T) {
+
+	codes := make(Uint8Codes)
+	codes[0x00] = "Unsupported"
+	codes[0x01] = "OK"
+	codes[0x02] = "Critical"
+	codes[0x03] = "Noncritical"
+	codes[0x04] = "Unrecoverable"
+	codes[0x05] = "Not Installed"
+	codes[0x06] = "Unknown"
+	codes[0x07] = "Not Available"
+	codes[0x08] = "No Access Allowed"
+	for i := uint8(0x09); (i >= 0x09) && (i <= 0x0f); i++ {
+		codes[i] = "Reserved"
+	}
+	data := []byte{1,2,3,4}
+	elem := Uint4CodeElement{codes: codes}
+	FieldCommonTest(data[3:], &elem)
+	log.Printf("%d: %s\n", elem.Code, elem.Name)
+	BitFieldCommonTest(&elem)
+}
+
 func TestUint8CodeElement(t *testing.T) {
 
 	codes := make(Uint8Codes)
@@ -314,4 +352,5 @@ func TestUint8CodeElement(t *testing.T) {
 	elem := Uint8CodeElement{codes: codes}
 	FieldCommonTest(data[3:], &elem)
 	log.Printf("%d: %s\n", elem.Code, elem.Name)
+	IntFieldCommonTest(&elem)
 }

@@ -3,7 +3,7 @@ package sespage
 import (
 	// "errors"
 	"fmt"
-	"strings"
+	// "strings"
 	"strconv"
 	// "log"
 )
@@ -11,10 +11,31 @@ import (
 /***************************************************************************
 * Basic Element Interface
 ***************************************************************************/
+type ElementLength uint64
+
+func (l ElementLength) Byte() uint64 {
+	return uint64(l/8)
+}
+
+func (l ElementLength) Bit() uint64 {
+	return uint64(l)
+}
+
+func (l ElementLength) RemainderBit() uint64 {
+	return uint64(l%8)
+}
+
+func (l ElementLength) IsAligned() bool {
+	if l%8 == 0 {
+		return true
+	}
+	return false
+}
+
 type Element interface {
 	Decode(data []byte) error
 	Encode() ([]byte, error)
-	Length() int32
+	Length() ElementLength
 }
 
 // List
@@ -163,8 +184,8 @@ func (e *Uint1Element) Encode() ([]byte, error) {
 	return data, nil
 }
 
-func (e *Uint1Element) Length() int32 {
-	return 1
+func (e *Uint1Element) Length() ElementLength {
+	return ElementLength(1)
 }
 
 func (e *Uint1Element) Uint1() uint8 {
@@ -205,8 +226,8 @@ func (e *Uint2Element) Encode() ([]byte, error) {
 	return data, nil
 }
 
-func (e *Uint2Element) Length() int32 {
-	return 1
+func (e *Uint2Element) Length() ElementLength {
+	return ElementLength(2)
 }
 
 func (e *Uint2Element) Uint2() uint8 {
@@ -247,8 +268,8 @@ func (e *Uint3Element) Encode() ([]byte, error) {
 	return data, nil
 }
 
-func (e *Uint3Element) Length() int32 {
-	return 1
+func (e *Uint3Element) Length() ElementLength {
+	return ElementLength(3)
 }
 
 func (e *Uint3Element) Uint3() uint8 {
@@ -289,8 +310,8 @@ func (e *Uint4Element) Encode() ([]byte, error) {
 	return data, nil
 }
 
-func (e *Uint4Element) Length() int32 {
-	return 1
+func (e *Uint4Element) Length() ElementLength {
+	return ElementLength(4)
 }
 
 func (e *Uint4Element) Uint4() uint8 {
@@ -331,8 +352,8 @@ func (e *Uint5Element) Encode() ([]byte, error) {
 	return data, nil
 }
 
-func (e *Uint5Element) Length() int32 {
-	return 1
+func (e *Uint5Element) Length() ElementLength {
+	return ElementLength(5)
 }
 
 func (e *Uint5Element) Uint5() uint8 {
@@ -373,8 +394,8 @@ func (e *Uint6Element) Encode() ([]byte, error) {
 	return data, nil
 }
 
-func (e *Uint6Element) Length() int32 {
-	return 1
+func (e *Uint6Element) Length() ElementLength {
+	return ElementLength(6)
 }
 
 func (e *Uint6Element) Uint6() uint8 {
@@ -415,8 +436,8 @@ func (e *Uint7Element) Encode() ([]byte, error) {
 	return data, nil
 }
 
-func (e *Uint7Element) Length() int32 {
-	return 1
+func (e *Uint7Element) Length() ElementLength {
+	return ElementLength(7)
 }
 
 func (e *Uint7Element) Uint7() uint8 {
@@ -451,8 +472,8 @@ func (e *BytesElement) Encode() ([]byte, error) {
 	return []byte(*e), nil
 }
 
-func (e *BytesElement) Length() int32 {
-	return int32(len(*e))
+func (e *BytesElement) Length() ElementLength {
+	return ElementLength(len(*e)*8)
 }
 
 func (e *BytesElement) Bytes() []byte {
@@ -489,8 +510,8 @@ func (e *Int8Element) Encode() ([]byte, error) {
 	return data, nil
 }
 
-func (e *Int8Element) Length() int32 {
-	return 1
+func (e *Int8Element) Length() ElementLength {
+	return ElementLength(8)
 }
 
 func (e *Int8Element) Int8() int8 {
@@ -527,8 +548,8 @@ func (e *Uint8Element) Encode() ([]byte, error) {
 	return data, nil
 }
 
-func (e *Uint8Element) Length() int32 {
-	return 1
+func (e *Uint8Element) Length() ElementLength {
+	return ElementLength(8)
 }
 
 func (e *Uint8Element) Uint8() uint8 {
@@ -568,8 +589,8 @@ func (e *Int16Element) Encode() ([]byte, error) {
 	return data, nil
 }
 
-func (e *Int16Element) Length() int32 {
-	return 2
+func (e *Int16Element) Length() ElementLength {
+	return ElementLength(16)
 }
 
 func (e *Int16Element) Int16() int16 {
@@ -609,8 +630,8 @@ func (e *Uint16Element) Encode() ([]byte, error) {
 	return data, nil
 }
 
-func (e *Uint16Element) Length() int32 {
-	return 2
+func (e *Uint16Element) Length() ElementLength {
+	return ElementLength(16)
 }
 
 func (e *Uint16Element) Uint16() uint16 {
@@ -652,8 +673,8 @@ func (e *Int32Element) Encode() ([]byte, error) {
 	return data, nil
 }
 
-func (e *Int32Element) Length() int32 {
-	return 4
+func (e *Int32Element) Length() ElementLength {
+	return ElementLength(32)
 }
 
 func (e *Int32Element) Int32() int32 {
@@ -695,8 +716,8 @@ func (e *Uint32Element) Encode() ([]byte, error) {
 	return data, nil
 }
 
-func (e *Uint32Element) Length() int32 {
-	return 4
+func (e *Uint32Element) Length() ElementLength {
+	return ElementLength(32)
 }
 
 func (e *Uint32Element) Uint32() uint32 {
@@ -750,8 +771,8 @@ func (e *Int64Element) Encode() ([]byte, error) {
 	return data, nil
 }
 
-func (e *Int64Element) Length() int32 {
-	return 8
+func (e *Int64Element) Length() ElementLength {
+	return ElementLength(64)
 }
 
 func (e *Int64Element) Int64() int64 {
@@ -805,8 +826,8 @@ func (e *Uint64Element) Encode() ([]byte, error) {
 	return data, nil
 }
 
-func (e *Uint64Element) Length() int32 {
-	return 8
+func (e *Uint64Element) Length() ElementLength {
+	return ElementLength(64)
 }
 
 func (e *Uint64Element) Uint64() uint64 {
@@ -852,8 +873,8 @@ func (e *BoolElement) Encode() ([]byte, error) {
 	return data, nil
 }
 
-func (e *BoolElement) Length() int32 {
-	return 1
+func (e *BoolElement) Length() ElementLength {
+	return ElementLength(8)
 }
 
 func (e *BoolElement) Bool() bool {
@@ -877,7 +898,7 @@ func CreateBoolElement() Element {
 type StringElement string
 
 func (e *StringElement) Decode(data []byte) error {
-	v := strings.TrimRight(string(data), "\u0000")
+	v := string(data)
 	*e = StringElement(v)
 	return nil
 }
@@ -887,8 +908,8 @@ func (e *StringElement) Encode() ([]byte, error) {
 	return data, nil
 }
 
-func (e *StringElement) Length() int32 {
-	return int32(len(*e))
+func (e *StringElement) Length() ElementLength {
+	return ElementLength(len(*e)*8)
 }
 
 func (e *StringElement) String() string {
@@ -935,8 +956,8 @@ func (e *HexStringElement) Encode() ([]byte, error) {
 	return data, nil
 }
 
-func (e *HexStringElement) Length() int32 {
-	return int32(len(*e)/2)
+func (e *HexStringElement) Length() ElementLength {
+	return ElementLength(len(*e)/2*8)
 }
 
 func (e *HexStringElement) String() string {
@@ -959,6 +980,41 @@ func CreateHexStringElement() Element {
 
 type Uint8Codes map[uint8]string
 
+type Uint4CodeElement struct {
+	Code uint8
+	Name string
+	codes Uint8Codes
+}
+
+func (e *Uint4CodeElement) Decode(data []byte) error {
+	if len(data) < 1 {
+		return fmt.Errorf("Expect 1 byte data, got %d", len(data))
+	}
+	e.Code = uint8(data[0]&0x0f)
+	e.Name = e.codes[e.Code]
+	return nil
+}
+
+func (e *Uint4CodeElement) Encode() ([]byte, error) {
+	return []byte{byte(e.Code)}, nil
+}
+
+func (e *Uint4CodeElement) Length() ElementLength {
+	return ElementLength(4)
+}
+
+func (e *Uint4CodeElement) Uint4() uint8 {
+	return e.Code
+}
+
+func (e *Uint4CodeElement) SetUint4(v uint8) {
+	if v > 0x0f {
+		panic("value isn't 4-bit")
+	}
+	e.Code = v
+	e.Name = e.codes[e.Code]
+}
+
 type Uint8CodeElement struct {
 	Code uint8
 	Name string
@@ -978,8 +1034,8 @@ func (e *Uint8CodeElement) Encode() ([]byte, error) {
 	return []byte{byte(e.Code)}, nil
 }
 
-func (e *Uint8CodeElement) Length() int32 {
-	return 1
+func (e *Uint8CodeElement) Length() ElementLength {
+	return ElementLength(8)
 }
 
 func (e *Uint8CodeElement) Uint8() uint8 {
